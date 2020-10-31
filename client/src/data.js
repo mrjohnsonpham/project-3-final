@@ -1,9 +1,9 @@
 export const storeProducts = [
   {
     id: 1,
-    title: "Cargo Pants - Premium Brown",
+    title: "Premium Lover and Friends Hoodie",
     img: "img/1hoodie1.png",
-    price: 10,
+    price: 75,
     company: "CP",
     info:
       "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
@@ -13,9 +13,9 @@ export const storeProducts = [
   },
   {
     id: 2,
-    title: "Cargo Pants - Premium Brown",
+    title: "Fancy Black Lounge Pants",
     img: "img/1pants1.jpg",
-    price: 16,
+    price: 70,
     company: "CP",
     info:
       "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
@@ -25,9 +25,9 @@ export const storeProducts = [
   },
   {
     id: 3,
-    title: "Cargo Pants - Premium Brown",
+    title: "Premium Black Resort Cargo",
     img: "img/2pants2.jpg",
-    price: 8,
+    price: 80,
     company: "CP",
     info:
       "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
@@ -37,9 +37,9 @@ export const storeProducts = [
   },
   {
     id: 4,
-    title: "Cargo Pants - Premium Brown",
+    title: "Obessesion Supima Tshirt",
     img: "img/2shirt2.jpg",
-    price: 18,
+    price: 45,
     company: "CP",
     info:
       "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
@@ -49,9 +49,9 @@ export const storeProducts = [
   },
   {
     id: 5,
-    title: "Cargo Pants - Premium Brown",
+    title: "Fancy Denim Blue",
     img: "img/3jeans3.jpg",
-    price: 24,
+    price: 75,
     company: "CP",
     info:
       "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
@@ -61,7 +61,7 @@ export const storeProducts = [
   },
   {
     id: 6,
-    title: "Cargo Pants - Premium Brown",
+    title: "Gentlemen Quarter Zip",
     img: "img/3sweater3.jpg",
     price: 17,
     company: "CP",
@@ -73,9 +73,9 @@ export const storeProducts = [
   },
   {
     id: 7,
-    title: "Cargo Pants - Premium Brown",
+    title: "Worry Free Island Button Down",
     img: "img/4shirt4.jpg",
-    price: 30,
+    price: 55,
     company: "CP",
     info:
       "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
@@ -85,7 +85,7 @@ export const storeProducts = [
   },
   {
     id: 8,
-    title: "Cargo Pants - Premium Brown",
+    title: "Cargo Resort Shorts",
     img: "img/4shorts4.jpg",
     price: 2,
     company: "CP",
