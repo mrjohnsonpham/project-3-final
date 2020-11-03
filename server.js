@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+const mongoose = require("mongoose");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const testApi = require('./routes/test-api');
@@ -21,6 +22,9 @@ app.use('/monkey-api', testApi);
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
+// Connect to the Mongo DB
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/project3final");
+
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port http://localhost:${PORT}`);
