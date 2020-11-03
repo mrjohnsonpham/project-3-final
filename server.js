@@ -1,8 +1,10 @@
 const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
+const routes = require("./routes");
 const app = express();
 const testApi = require('./routes/test-api');
+const mongoose = require("mongoose");
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -13,6 +15,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Define API routes here
+app.use(routes);
 app.use('/api', testApi);
 app.use('/monkey-api', testApi);
 
