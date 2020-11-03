@@ -17,7 +17,7 @@ if (process.env.NODE_ENV === "production") {
 // Define API routes here
 app.use('/api', testApi);
 app.use('/monkey-api', testApi);
-app.use('/api/products', products)
+app.use('/api/products', products);
 // Send every other request to the React app
 // Define any API routes before this runs
 app.get("*", (req, res) => {
@@ -25,7 +25,6 @@ app.get("*", (req, res) => {
 });
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/project3final");
-
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port http://localhost:${PORT}`);
