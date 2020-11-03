@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const testApi = require('./routes/test-api');
+const products = require('./routes/api/products');
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -16,7 +17,7 @@ if (process.env.NODE_ENV === "production") {
 // Define API routes here
 app.use('/api', testApi);
 app.use('/monkey-api', testApi);
-
+app.use('/api/products', products)
 // Send every other request to the React app
 // Define any API routes before this runs
 app.get("*", (req, res) => {
