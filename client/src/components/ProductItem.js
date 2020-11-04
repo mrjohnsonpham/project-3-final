@@ -15,25 +15,15 @@ class ProductItem extends Component {
                     <ProductConsumer>
                         {(value => (
                             <div
-                                onClick={() => {
-                                    value.handleDetail(id);
-                                }}
-                                className="img-container p-5"
-
-                            >
+                                onClick={() => { value.handleDetail(id); }} className="img-container p-5">
                                 <Link to='/details'>
                                     <img src={img} alt={title} className="card-img-top" name={title} />
                                 </Link>
-                                <button
-                                    className="cart-btn"
-                                    disabled={inCart ? true : false}
-                                    onClick={() => {
-                                        value.addToCart(id)
-                                        value.openModal(id);
-                                    }}
-                                >
-                                    {inCart ? (<p className="text-capitalize mb-0" disabled>In Cart</p>)
-                                        : (<i className="fas fa-cart-plus" />)}
+                                <button className="cart-btn" disabled={inCart ? true : false} onClick={() => {
+                                    value.addToCart(id)
+                                    value.openModal(id);
+                                }}>
+                                    {inCart ? (<p className="text-capitalize mb-0" disabled>In Cart</p>) : (<i className="fas fa-cart-plus" />)}
                                 </button>
                             </div>
                         ))}

@@ -5,6 +5,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Navbar from './components/Navbar';
 import ProductList from './components/ProductList';
+import Products from './pages/Products'
 
 
 
@@ -13,6 +14,7 @@ function App() {
     <React.Fragment>
       <Navbar />
       <Switch>
+        <Route exact path='/products' component={Products} />
         <Route exact path='/' component={ProductList} />
 
       </Switch>

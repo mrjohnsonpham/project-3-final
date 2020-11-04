@@ -6,7 +6,7 @@ export default {
     return axios.get("/api/products");
   },
   // Gets the Products with the given id
-  getProducts: function(id) {
+  getProduct: function(id) {
     return axios.get("/api/products/" + id);
   },
   // Deletes the Products with the given id
