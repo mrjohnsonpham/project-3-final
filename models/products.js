@@ -10,7 +10,8 @@ const productsSchema = new Schema(
         itemNumber: Number,
         description: { type: String, required: true},
         image: String,
-        date: { type: Date, default: Date.now }
+        date: { type: Date, default: Date.now },
+        inCart: {type: Boolean, default: false}
     }
 );
 
