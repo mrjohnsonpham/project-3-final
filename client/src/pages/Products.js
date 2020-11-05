@@ -5,6 +5,7 @@ import { ProductConsumer } from '../context';
 import { List, ListItem } from "../components/List";
 import API from '../utils/API';
 
+
 function Products() {
     // Setting our component's initial state
     const [products, setProducts] = useState([])
@@ -37,7 +38,8 @@ function Products() {
                                 <h2>${product.price}</h2>
                                 <p>{product.description}</p>
                                 <p>Item Number: {product.itemNumber}</p>
-                                <img href={product.image}/>
+                                <p>{product.image}</p>
+                                <img src={product.image} alt=""></img>
                             </ListItem>
                         );
                     })}
