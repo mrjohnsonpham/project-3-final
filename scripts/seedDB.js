@@ -15,7 +15,7 @@ const ProductsSeed = [
         category: "Johnson Specials",
         itemNumber: 1,
         description: "The shirt literally off Johnson's back",
-        image: "../../public/img/1hoodie1.png",
+        image: "../img/1hoodie1.png",
         date: new Date(Date.now())
         
     },
@@ -25,7 +25,7 @@ const ProductsSeed = [
         category: "Jivko Specials",
         itemNumber: 2,
         description: "The shirt literally off Johnson's back",
-        image: "../../public/img/1pants1.png",
+        image: "../img/1pants1.png",
         date: new Date(Date.now())
     }
 ];
