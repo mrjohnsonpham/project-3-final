@@ -36,7 +36,7 @@ function Navbar (props) {
                 <Link to='/cart' className="ml-auto" >
                     <ButtonContainer>
                         <span className="mr-2">
-                            <i className="fas fa-cart-plus" />
+                            <i className="fa fa-cart-plus" />
                         </span>
                         My Cart
                     </ButtonContainer>

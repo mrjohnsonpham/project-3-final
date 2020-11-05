@@ -10,13 +10,14 @@ class ProductList extends Component {
                 <div className="container">
                     <Title name="Our" title="Products" />
                     <div className="row">
-                        <ProductConsumer>
-                            {value => {
+                        {/* <ProductConsumer> */}
+                            {/* {value => {
                                 return value.products.map(product => {
                                     return <ProductItem key={product.id} product={product} />
                                 })
-                            }}
-                        </ProductConsumer>
+                            }} */}
+                            <ProductItem/>
+                        {/* </ProductConsumer> */}
                     </div>
                 </div>
             </div>
