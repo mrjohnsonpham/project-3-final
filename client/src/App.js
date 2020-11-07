@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-import  {React, useState} from 'react';
-import { Route, Switch } from 'react-router-dom';
-import axios from 'axios';
-=======
 import React,  {useState} from 'react';
 import { Route, Switch } from 'react-router-dom';
 
->>>>>>> f33eeb784631372308b8b1e991f829125e470018
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/Navbar';
