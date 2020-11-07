@@ -8,9 +8,9 @@ function ProductItem(props) {
     const [products, setProducts] = useState([])
 
     // Load all products and store them with setProducts
-    // useEffect(() => {
+    useEffect(() => {
         loadProducts()
-    // }, [])
+     }, []);
 
     // Loads all products and sets them to products
     function loadProducts() {
@@ -21,10 +21,23 @@ function ProductItem(props) {
             .catch(err => console.log(err));
     };
 
+    const handleAddToCart = (event) => {
+        const thisElement =event.target;
+      
+        const price = thisElement.getAttribute("data-price");
+        console.log(price);
+        // value.addToCart(id)
+         // value.openModal(id);
+     };
+
+
     // const { title, img, price, inCart, id } = props.product
+
     return (
-        <div className="col-sm-9 mx-auto col-md-6 col-lg-3 my-3">
+
+        <div className="row">
             {products.map(product => (
+            <div className="col-sm-9 mx-auto col-md-6 col-lg-3 my-3">
                 <div className="card">
                     {/* <ProductConsumer> */}
                     {/* <Products> */}
@@ -34,11 +47,8 @@ function ProductItem(props) {
                         <Link to='/details'>
                             <img src={product.image} alt={product.productName} className="card-img-top" />
                         </Link>
-                        <button className="cart-btn" disabled={product.inCart ? true : false} onClick={() => {
-                            // value.addToCart(id)
-                            // value.openModal(id);
-                        }}>
-                            {product.inCart ? (<p className="text-capitalize mb-0" disabled>In Cart</p>) : (<p className="text-capitalize mb-0">Add to Cart <i className="fa fa-cart-plus" /></p>)}
+                        <button className="cart-btn"  disabled={product.inCart ? true : false} onClick={handleAddToCart}>
+                            {product.inCart ? (<p className="text-capitalize mb-0" disabled data-product={product._id} data-price={product.price.toString()}>In Cart</p>) : (<p className="text-capitalize mb-0" data-product={product._id} data-price={product.price.toString()}>Add to Cart <i className="fa fa-cart-plus" /></p>)}
                         </button>
                     </div>
 
@@ -53,6 +63,7 @@ function ProductItem(props) {
                         </h5>
                     </div>
                 </div>
+        </div>
             ))}
         </div>
     )

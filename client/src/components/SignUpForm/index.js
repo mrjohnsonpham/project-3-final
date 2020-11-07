@@ -1,70 +1,40 @@
-<<<<<<< HEAD
-import React from 'react';
-import "./style.scss";
-
-
-function LoginForm(props) {
-let extraProps ={}
-if(props.className) {
-  extraProps.className = props.className;
-
-}
-let emailId = props.className ? props.className +"login-email":"login-email";
-let emailHelpId = props.className ? props.className+"-login-email-help":"login-email-help";
-let passwordId= props.className ? props.className+"-login-password":"login-password";
-const handleSubmit = event  => {
-event.preventDefault();
-  console.log("submit happened")
-}
-    return (
-    <div className="container">
-<form {...extraProps} onSubmit={handleSubmit}>
-    <div className="form-group">
-    <label htmlFor={emailId}>Email address</label>
-    <input type="email" className="form-control" id={emailId} aria-describedby={emailHelpId} placeholder="Enter email"/>
-    <small id={emailHelpId} className="form-text text-muted">We'll never share your email with anyone else.</small>
-  </div>
-  <div className="form-group">
-    <label htmlFor={passwordId}>Password</label>
-    <input type="password" className="form-control" id={passwordId} placeholder="Password"/>
-  </div>
-  
-  <button type="submit" className="btn btn-primary">Submit</button>
-</form>
-  </div>
-
-    )
-};
-=======
 import React, { Fragment, useContext, useRef } from 'react';
-import "./style.scss";
+// import "./style.scss";
 import API from '../../utils/API';
 import UserContext from '../../utils/UserContext';
-import { useHistory } from "react-router-dom";
 
-function LoginForm(props) {
+function SignUpForm(props) {
     const { email, setEmail, loggedIn, setLoggedIn } = useContext(UserContext);
-    const history = useHistory();
     const emailInput = useRef();
     const passwordInput = useRef();
+    const nameInput = useRef();
+
     let extraProps = {}
     if (props.className) {
         extraProps.className = props.className;
     }
-    let emailId = props.className ? props.className + "-login-email" : "login-email";
-    let emailHelpId = props.className ? props.className + "-login-email-help" : "login-email-help";
-    let passwordId = props.className ? props.className + "-login-password" : "login-password";
+    let emailId = props.className ? props.className + "-signup-email" : "signup-email";
+    let emailHelpId = props.className ? props.className + "-signup-email-help" : "signup-email-help";
+    let passwordId = props.className ? props.className + "-signup-password" : "signup-password";
+    let nameId = props.className ? props.className + "-signup-name" : "signup-name";
+
     const handleSubmit = event => {
         // if the user hits enter or hits the button, this function will fire
         event.preventDefault();
         // console.log("submit happened");
         // console.log({ email: emailInput.current.value, password: passwordInput.current.value});
-        API.login({ email: emailInput.current.value, password: passwordInput.current.value})
+        // API.testUserRouter()
+        // .then(data => {
+        //     console.log(data);
+        // })
+        // .catch(err => {
+        //     console.log(err);
+        // });
+        API.signup({ email: emailInput.current.value, password: passwordInput.current.value, name: nameInput.current.value})
             .then(data => {
-                // console.log(data);
+                 console.log(data);
                 setEmail(data.data.email);
                 setLoggedIn(true);
-                history.push("/");
             })
             .catch(err => {
                 console.log(err);
@@ -81,10 +51,14 @@ function LoginForm(props) {
                             <small id={emailHelpId} className="email-help-text form-text text-muted">We'll never share your email with anyone else.</small>
                         </div>
                         <div className="form-group">
+                            <label htmlFor={nameId}>User Name</label>
+                            <input ref={nameInput} type="text" className="form-control" id={nameId} />
+                        </div>
+                        <div className="form-group">
                             <label htmlFor={passwordId}>Password</label>
                             <input ref={passwordInput} type="password" className="form-control" id={passwordId} />
                         </div>
-                        <button type="submit" className="btn btn-primary">Login</button>
+                        <button type="submit" className="btn btn-primary">Sign Up</button>
                     </form>
                     );
                 }
@@ -96,6 +70,5 @@ function LoginForm(props) {
         </Fragment>
     )
 }
->>>>>>> 21f58eb1b861db4424f106cf8f69bd2b2b8e1935
 
-export default LoginForm;
+export default SignUpForm;

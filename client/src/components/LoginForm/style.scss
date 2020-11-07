@@ -1,4 +1,5 @@
 .top-menu-login{
+<<<<<<< HEAD
 display:inline-block;
 padding-right: 15px;
 @media screen and (min-width:768px){
@@ -16,3 +17,22 @@ padding-right: 15px;
 }
 }
 
+=======
+    display: inline-block;
+    padding-right: 15px;
+    @media screen and (min-width: 768px){
+        padding-right: 0px;
+    }
+    .email-help-text{
+        display:none;
+    }
+    .form-group{
+        display: block;
+        @media screen and (min-width: 768px){
+            display:inline-block;
+            padding-right: 5px;
+        }
+    }
+
+}
+>>>>>>> 21f58eb1b861db4424f106cf8f69bd2b2b8e1935
