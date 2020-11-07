@@ -23,10 +23,10 @@ function Cart() {
 
 
     const { total, subtotal, shipping, products, setProducts, setShipping, setSubtotal, setTotal } = useContext(CartContext);
-
+    
     function cartBuilder() {
         const products = allProducts.filter(allProduct => {
-            allProduct.inCart
+            console.log("hello!");
 
         });
 
