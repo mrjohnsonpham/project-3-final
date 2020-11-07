@@ -29,7 +29,8 @@ router.post("/signup", (req, res) => {
     console.log(req.body);
     db.User.create({
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        name: req.body.name
     })
     .then(data => {
         res.json({email: data.email});
