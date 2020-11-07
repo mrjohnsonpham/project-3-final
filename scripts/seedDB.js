@@ -48,7 +48,7 @@ const ProductsSeed = [
         description: "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park",
         image: "../img/2shirt2.jpg",
         date: new Date(Date.now()),
-        inCart: false
+        inCart: true
     },
     {
         productName: "Fancy Denim Blue",

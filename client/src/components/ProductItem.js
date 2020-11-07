@@ -27,8 +27,10 @@ function ProductItem(props) {
 
     // const { title, img, price, inCart, id } = props.product
     return (
-        <div className="col-sm-9 mx-auto col-md-6 col-lg-3 my-3">
+
+        <div className="row">
             {products.map(product => (
+            <div className="col-sm-9 mx-auto col-md-6 col-lg-3 my-3">
                 <div className="card">
                     {/* <ProductConsumer> */}
                     {/* <Products> */}
@@ -57,6 +59,7 @@ function ProductItem(props) {
                         </h5>
                     </div>
                 </div>
+        </div>
             ))}
         </div>
     )
