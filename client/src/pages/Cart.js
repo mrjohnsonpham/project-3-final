@@ -17,25 +17,24 @@ function Cart() {
         // console.log("All products: " + res.data)
 
 
-    
     const { total, subtotal, shipping, products, setProducts,setShipping,setSubtotal,setTotal } = useContext(CartContext);
 
-    // function cartBuilder(products){
-    //     products = allProducts.filter(allProducts.inCart);
+    function cartBuilder(){
+        products = allProducts.filter(allProduct => allProducts.inCart);
 
-    //     return(products)
+        return(products)
 
-    // }
-    // cartBuilder();
+    }
+    cartBuilder();
 
     // cartBuilder();
     // allProducts.filter(allProducts => {
     //     allProducts.inCart ? products : ("")
     // }) 
     
-    const addProduct = function( name, availability, quantity, price, shippingCost, image, productid){
+    const addProduct = function( productName, isAvailable, quantity, price, shippingCost, image, _id){
         let fullCart = [...products, {
-            name, availability, quantity, price, shippingCost, image, productid
+            productName, isAvailable, quantity, price, shippingCost, image, _id
         }];
         setProducts(fullCart);
         setShipping(shipping+shippingCost);
