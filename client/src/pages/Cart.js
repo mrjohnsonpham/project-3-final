@@ -1,11 +1,28 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useContext, } from "react";
+import CartContext from '../utils/CartContext'
 
 function Cart() {
+    const { total, subtotal, shipping, products, setProducts,setShipping,setSubtotal,setTotal } = useContext(CartContext);
+    const addProduct = function( name, availability, quantity, price, shippingCost, image, productid){
+        let fullCart = [...products, {
+            name, availability, quantity, price, shippingCost, image, productid
+        }];
+        setProducts(fullCart);
+        setShipping(shipping+shippingCost);
+        setSubtotal(subtotal+price*quantity);
+        setTotal(total + shipping + shippingCost + price * quantity);
+    }
+    const handleCoolProductClick = function(event){
+        console.log(event.target);
+        addProduct("joes", "in-stock",1,5.00, 1.00, "https://joesbakery.com/wp-content/uploads/2016/01/JOES-50thedit332.jpg", "1")
+        
+    }
     return (
         <Fragment>
             <section className="jumbotron text-center">
                 <div className="container">
                     <h1 className="jumbotron-heading">My Marketplace</h1>
+                    <button onClick={handleCoolProductClick}>=Add a cool product here!!!</button>
                 </div>
             </section>
             <div className="container mb-4">
@@ -24,7 +41,13 @@ function Cart() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    {products.map((product, index) =>
+                                        <tr key={"product-" + index}>
+                                            <td> <img className="img-fluid" src={product.image} alt={product.name} /></td>
+                                            <td>{product.name}</td>
+                                        </tr>
+                                    )}
+                                    {/* <tr>
                                         <td><img src="https://dummyimage.com/50x50/55595c/fff" alt="sweater" /> </td>
                                         <td>Premium Lover and Friends Hoodie</td>
                                         <td>In stock</td>
@@ -53,14 +76,14 @@ function Cart() {
                                         <td className="text-right">$80.00 USD</td>
                                         <td className="text-right"><button className="btn btn-sm btn-danger"><i className="fa fa-trash"></i>
                                         </button> </td>
-                                    </tr>
+                                    </tr> */}
                                     <tr>
                                         <td></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
                                         <td>Sub-Total</td>
-                                        <td className="text-right">$225.00 USD</td>
+                                        <td className="text-right">${subtotal.toFixed(2)} USD</td>
                                     </tr>
                                     <tr>
                                         <td></td>
@@ -68,7 +91,7 @@ function Cart() {
                                         <td></td>
                                         <td></td>
                                         <td>Shipping</td>
-                                        <td className="text-right">$25.00 USD</td>
+                                        <td className="text-right">${shipping.toFixed(2)} USD</td>
                                     </tr>
                                     <tr>
                                         <td></td>
@@ -76,7 +99,7 @@ function Cart() {
                                         <td></td>
                                         <td></td>
                                         <td><strong>Total</strong></td>
-                                        <td className="text-right"><strong>$250.00 USD</strong></td>
+                                        <td className="text-right"><strong>${total.toFixed(2)} USD</strong></td>
                                     </tr>
                                 </tbody>
                             </table>
