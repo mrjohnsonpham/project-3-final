@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 // import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 // import styled from 'styled-components'
@@ -12,9 +12,9 @@ function ProductItem(props) {
     const [products, setProducts] = useState([])
 
     // Load all products and store them with setProducts
-    // useEffect(() => {
+    useEffect(() => {
         loadProducts()
-    // }, [])
+     }, []);
 
     // Loads all products and sets them to products
     function loadProducts() {
@@ -24,6 +24,7 @@ function ProductItem(props) {
             )
             .catch(err => console.log(err));
     };
+
 
     // const { title, img, price, inCart, id } = props.product
     return (
