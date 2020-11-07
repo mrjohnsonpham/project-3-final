@@ -1,28 +1,36 @@
-import React, { Fragment, useContext, useState } from "react";
+import React, { Fragment, useContext, useEffect, useState } from "react";
 import CartContext from '../utils/CartContext'
 import API from '../utils/API';
 
 
 function Cart() {
-    const [allProducts, setAllProducts] = useState([])
-    loadProducts()
-    
+    const [allProducts, setAllProducts] = useState([]);
+
+    useEffect(() => {
+        loadProducts();
+    });
+
+
     function loadProducts() {
         API.getProducts()
             .then(res =>
+            
                 setAllProducts(res.data)
             )
             .catch(err => console.log(err));
-        };
-        // console.log("All products: " + res.data)
+    };
+    // console.log("All products: " + res.data)
 
 
-    const { total, subtotal, shipping, products, setProducts,setShipping,setSubtotal,setTotal } = useContext(CartContext);
+    const { total, subtotal, shipping, products, setProducts, setShipping, setSubtotal, setTotal } = useContext(CartContext);
 
-    function cartBuilder(){
-        products = allProducts.filter(allProduct => allProducts.inCart);
+    function cartBuilder() {
+        const products = allProducts.filter(allProduct => {
+            allProduct.inCart
 
-        return(products)
+        });
+
+        return (products)
 
     }
     cartBuilder();
@@ -31,20 +39,20 @@ function Cart() {
     // allProducts.filter(allProducts => {
     //     allProducts.inCart ? products : ("")
     // }) 
-    
-    const addProduct = function( productName, isAvailable, quantity, price, shippingCost, image, _id){
+
+    const addProduct = function (productName, isAvailable, quantity, price, shippingCost, image, _id) {
         let fullCart = [...products, {
             productName, isAvailable, quantity, price, shippingCost, image, _id
         }];
         setProducts(fullCart);
-        setShipping(shipping+shippingCost);
-        setSubtotal(subtotal+price*quantity);
+        setShipping(shipping + shippingCost);
+        setSubtotal(subtotal + price * quantity);
         setTotal(total + shipping + shippingCost + price * quantity);
     }
-    const handleCoolProductClick = function(event){
+    const handleCoolProductClick = function (event) {
         console.log(event.target);
-        addProduct("joes", "in-stock",1,5.00, 1.00, "https://joesbakery.com/wp-content/uploads/2016/01/JOES-50thedit332.jpg", "1")
-        
+        addProduct("joes", "in-stock", 1, 5.00, 1.00, "https://joesbakery.com/wp-content/uploads/2016/01/JOES-50thedit332.jpg", "1")
+
     }
     return (
         <Fragment>
