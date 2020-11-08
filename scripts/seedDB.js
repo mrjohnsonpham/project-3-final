@@ -17,7 +17,10 @@ const ProductsSeed = [
         description: "The shirt literally off Johnson's back",
         image: "../img/1hoodie1.png",
         date: new Date(Date.now()),
-        inCart: false
+        inCart: false,
+        isAvailable: true,
+        inStock: 8,
+        shippingCost: 6.99
         
     },
     {
@@ -28,7 +31,10 @@ const ProductsSeed = [
         description: "The shirt literally off Johnson's back",
         image: "../img/1pants1.jpg",
         date: new Date(Date.now()),
-        inCart: false
+        inCart: false,
+        isAvailable: true,
+        inStock: 5,
+        shippingCost: 6.99
     },
     {
         productName: "Premium Black Resort Cargo",
@@ -38,7 +44,10 @@ const ProductsSeed = [
         description: "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
         image: "../img/2pants2.jpg",
         date: new Date(Date.now()),
-        inCart: false
+        inCart: false,
+        isAvailable: true,
+        inStock: 12,
+        shippingCost: 6.99
     },
     {
         productName: "Obessesion Supima Tshirt",
@@ -48,7 +57,10 @@ const ProductsSeed = [
         description: "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park",
         image: "../img/2shirt2.jpg",
         date: new Date(Date.now()),
-        inCart: false
+        inCart: true,
+        isAvailable: true,
+        inStock: 5,
+        shippingCost: 6.99
     },
     {
         productName: "Fancy Denim Blue",
@@ -58,7 +70,10 @@ const ProductsSeed = [
         description: "Lorem ipsum dolor amet offal butcher",
         image: "../img/3jeans3.jpg",
         date: new Date(Date.now()),
-        inCart: false
+        inCart: false,
+        isAvailable: true,
+        inStock: 5,
+        shippingCost: 6.99
     },
     {
         productName: "Gentlemen Quarter Zip",
@@ -68,7 +83,10 @@ const ProductsSeed = [
         description: "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually",
         image: "../img/3sweater3.jpg",
         date: new Date(Date.now()),
-        inCart: false
+        inCart: false,
+        isAvailable: true,
+        inStock: 16,
+        shippingCost: 6.99
     },
     {
         productName: "Worry Free Island Button Down",
@@ -78,17 +96,23 @@ const ProductsSeed = [
         description: "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth",
         image: "../img/1pants1.jpg",
         date: new Date(Date.now()),
-        inCart: false
+        inCart: false,
+        isAvailable: true,
+        inStock: 2,
+        shippingCost: 6.99
     },
     {
         productName: "Cargo Resort Shorts",
         price: 9000,
         category: "Jivko Specials",
-        itemNumber: 2,
+        itemNumber: 8,
         description: "olor amet offal butcher quinoa sustainable gastropub, ec",
         image: "../img/4shorts4.jpg",
         date: new Date(Date.now()),
-        inCart: false
+        inCart: false,
+        isAvailable: true,
+        inStock: 5,
+        shippingCost: 6.99
     }
     
 ];
