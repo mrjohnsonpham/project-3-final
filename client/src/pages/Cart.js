@@ -59,7 +59,7 @@ function Cart() {
             <section className="jumbotron text-center">
                 <div className="container">
                     <h1 className="jumbotron-heading">My Marketplace</h1>
-                    <button onClick={handleCoolProductClick}>=Add a cool product here!!!</button>
+                    <button onClick={handleCoolProductClick}>Add a cool product here!!!</button>
                 </div>
             </section>
             <div className="container mb-4">
@@ -83,6 +83,7 @@ function Cart() {
                                             <td> <img className="img-fluid" src={product.image} alt={product.name} /></td>
                                             <td>{product.name}</td>
                                         </tr>
+
                                     )}
                                     {/* <tr>
                                         <td><img src="https://dummyimage.com/50x50/55595c/fff" alt="sweater" /> </td>
