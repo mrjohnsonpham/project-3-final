@@ -19,17 +19,19 @@ function ProductItem(props) {
         setImage,
         productid,
         setProductid,
+        addProductToCart,
+        refreshCart
       } = useContext(CartContext);
 
+    //   const { total, subtotal, shipping, products, setProducts, setShipping, setSubtotal, setTotal,addProductToCart,refreshCart } = useContext(CartContext);
 
-
-         setName(name);
-      setAvailability(available);
-      setQuantity(quantity);
+    //      setName(name);
+    //   setAvailability(available);
+    //   setQuantity(quantity);
   
-      setPrice(price1);
-      setImage(image1);
-      setProductid(_id);
+    //   setPrice(price1);
+    //   setImage(image1);
+    //   setProductid(_id);
 
 
   const [products, setProducts] = useState([]);
@@ -53,14 +55,16 @@ function ProductItem(props) {
     const price = thisElement.getAttribute("data-price");
     const _id = thisElement.getAttribute("data-id");
     const name = thisElement.getAttribute("data-name");
-    const available = thisElement.getAttribute("data-available");
+    const availability = thisElement.getAttribute("data-available");
     const image1 = thisElement.getAttribute("data-image");
 
 // helpJA(name, available,quantity ,price1, image1, _id);
     console.log(price);
     console.log(_id);
     console.log(name);
-    console.log(available);
+    console.log(availability);
+
+    addProductToCart(name, availability, 1, price, 10.00, image, "check it")
 
   
 
