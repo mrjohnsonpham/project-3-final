@@ -7,18 +7,18 @@ import CartContext from "../utils/CartContext";
 function ProductItem(props) {
   
     const {
-        name,
-        setName,
-        availability,
-        setAvailability,
-        quantity,
-        setQuantity,
-        price,
-        setPrice,
-        image,
-        setImage,
-        productid,
-        setProductid,
+        // name,
+        // setName,
+        // availability,
+        // setAvailability,
+        // quantity,
+        // setQuantity,
+        // price,
+        // setPrice,
+        // image,
+        // setImage,
+        // productid,
+        // setProductid,
         addProductToCart,
         refreshCart
       } = useContext(CartContext);
@@ -56,7 +56,7 @@ function ProductItem(props) {
     const _id = thisElement.getAttribute("data-id");
     const name = thisElement.getAttribute("data-name");
     const availability = thisElement.getAttribute("data-available");
-    const image1 = thisElement.getAttribute("data-image");
+    const image = thisElement.getAttribute("data-image");
 
 // helpJA(name, available,quantity ,price1, image1, _id);
     console.log(price);
