@@ -1,4 +1,4 @@
-import React,  {useState} from 'react';
+import React,  {useState,useEffect} from 'react';
 // import { Router, Route, Switch } from 'react-router-dom';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
@@ -23,11 +23,43 @@ function App() {
   // kyle added 22-23
   const [email, setEmail] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
+
+  const addProductToCart = (productName, isAvailable, quantity, price, shippingCost, image, _id) => {
+    // do the math for the cart subtotal, total, shipping for the entire app and database
+    let fullCart = [...products, {
+      productName, isAvailable, quantity, price, shippingCost, image, _id
+    }];
+    setProducts(fullCart);
+    setShipping(shipping + shippingCost);
+    setSubtotal(subtotal + price * quantity);
+    setTotal(total + shipping + shippingCost + price * quantity);
+    // add to database cart
+    // API.callhere to add product
+  }
+
+  const refreshCart = () => {
+    // API.getCart... to refresh the cart state that is already global and updates the entire app and sync with database
+    // can be called anywhere as needed, but in most cases, you call it in App... with global the entire app is updated
+    let shipping = 0;
+    let subtotal = 0;
+    let total = 0;
+    products.forEach( product => {
+      setShipping(shipping + product.shippingCost);
+      setSubtotal(subtotal + product.price * product.quantity);
+      setTotal(total + shipping + product.shippingCost + product.price * product.quantity);
+    } )
+    
+  }
+  useEffect( () => {
+    // uses the react life cycle to update the page's state or context,
+    // with global context it updates the entire app
+    refreshCart();
+  }, []);
   return (
     // kyle added 26 and 29-30
     <Router>
     <React.Fragment>
-      <CartContext.Provider value={{products,setProducts,subtotal,setSubtotal,shipping,setShipping,total,setTotal}}>
+      <CartContext.Provider value={{products,setProducts,subtotal,setSubtotal,shipping,setShipping,total,setTotal,refreshCart,addProductToCart }}>
       <UserContext.Provider value={{email, setEmail, loggedIn, setLoggedIn}}>
       <div>
       <Navbar/>
