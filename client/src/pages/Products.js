@@ -8,12 +8,12 @@ import API from '../utils/API';
 
 function Products() {
     // Setting our component's initial state
-    const [products, setProducts] = useState([])
+    const [products, setProducts] = useState([]);
 
     // Load all products and store them with setProducts
     useEffect(() => {
         loadProducts()
-    }, [])
+    }, []);
 
     // Loads all products and sets them to products
     function loadProducts() {

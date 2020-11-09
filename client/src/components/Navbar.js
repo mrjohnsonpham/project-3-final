@@ -1,11 +1,17 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import Logo from '../../src/logo.svg'
-import styled from 'styled-components'
-import { ButtonContainer } from './Button'
+                            // kyle added useState, Fragment and useContext
+import React, { Component, useState, Fragment, useContext } from 'react';
+import { Link } from 'react-router-dom';
+import Logo from '../../src/logo.svg';
+import styled from 'styled-components';
+import { ButtonContainer } from './Button';
+import UserContext from "../utils/UserContext";
+import LoginForm from "../components/LoginForm";
 
-class Navbar extends Component {
-    render() {
+function Navbar(props)  {
+    
+        // kyle added 11-12
+        const [loginExpanded, setLoginExpanded] = useState(false);
+        const {email, loggedIn} = useContext(UserContext);
         return (
             <NavWrapper className="navbar navbar-expand-sm navbar-dark px-sm-5">
              
@@ -27,9 +33,28 @@ class Navbar extends Component {
                         My Cart
                     </ButtonContainer>
                 </Link>
+                {/* kyle added 35-52*/}
+                { (() => {
+        if(loggedIn){
+          return <p className="logged-in-text">Logged in as {email} <Link className="btn btn-dark" to="/logout" onClick={ () => setLoginExpanded(false)}>Logout <span><i class="fa fa-sign-out" aria-hidden="true"></i></span> </Link> </p>;
+        }
+        else{
+          if(!loginExpanded){
+            return <button className="btn btn-secondary" onClick={ () => setLoginExpanded(true) }>Login <span><i class="fa fa-sign-in" aria-hidden="true"></i></span> </button>;
+          }
+          else{
+            return (
+              <Fragment>
+                <LoginForm className="top-menu-login"/>
+                <button onClick={ () => setLoginExpanded(false) }>X</button>
+              </Fragment>
+            )
+          } 
+        }
+      })()}
             </NavWrapper>
         )
-    }
+    
 }
 
 const NavWrapper = styled.nav`
@@ -38,6 +63,14 @@ background: var(--mainBlue);
     color: var(--mainWhite)!important;
     font-size: 1.3rem;
     text-transform:capitalize;
+}
+// kyle added 66-72
+.logged-in-text{
+    font-size:10px;
+    a {
+        font-size:14px;
+        color: white;
+    }
 }
 `
 
