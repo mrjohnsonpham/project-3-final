@@ -47,11 +47,11 @@ function Navbar(props)  {
                 {/* kyle added 35-52*/}
                 { (() => {
         if(loggedIn){
-          return <p className="logged-in-text">Logged in as {email} <Link to="/logout" onClick={ () => setLoginExpanded(false)}>Logout</Link> </p>;
+          return <p className="logged-in-text">Logged in as {email} <Link className="btn btn-dark" to="/logout" onClick={ () => setLoginExpanded(false)}>Logout <span><i class="fa fa-sign-out" aria-hidden="true"></i></span> </Link> </p>;
         }
         else{
           if(!loginExpanded){
-            return <button onClick={ () => setLoginExpanded(true) }>Login</button>;
+            return <button className="btn btn-secondary" onClick={ () => setLoginExpanded(true) }>Login <span><i class="fa fa-sign-in" aria-hidden="true"></i></span> </button>;
           }
           else{
             return (

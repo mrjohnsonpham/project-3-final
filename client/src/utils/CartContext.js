@@ -21,13 +21,15 @@ const CartContext = createContext({
     image:"",
     setImage: () => {},
     productid:0,
-    setProductid: () => {}
+    setProductid: () => {},
 
 
 
 
 
 
+    addProductToCart: () => {},
+    refreshCart: () => {}
 
 });
 

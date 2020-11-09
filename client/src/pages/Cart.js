@@ -40,26 +40,27 @@ function Cart() {
     //     allProducts.inCart ? products : ("")
     // }) 
 
-    const addProduct = function (productName, isAvailable, quantity, price, shippingCost, image, _id) {
-        let fullCart = [...products, {
-            productName, isAvailable, quantity, price, shippingCost, image, _id
-        }];
-        setProducts(fullCart);
-        setShipping(shipping + shippingCost);
-        setSubtotal(subtotal + price * quantity);
-        setTotal(total + shipping + shippingCost + price * quantity);
-    }
+
     const handleCoolProductClick = function (event) {
         console.log(event.target);
-        addProduct("joes", "in-stock", 1, 5.00, 1.00, "https://joesbakery.com/wp-content/uploads/2016/01/JOES-50thedit332.jpg", "1")
+        addProductToCart("joes", "in-stock", 1, 5.00, 1.00, "https://joesbakery.com/wp-content/uploads/2016/01/JOES-50thedit332.jpg", "1")
+    }
 
+    const handleChange = (event, index) =>{
+        // api call to ipdate quantity
+        console.log(event.target);
+        console.log(event.target.value);
+        const changedProduct = [...products];
+        changedProduct[index].quantity = event.target.value;
+        setProducts(changedProduct);
+        refreshCart();
     }
     return (
         <Fragment>
             <section className="jumbotron text-center">
                 <div className="container">
                     <h1 className="jumbotron-heading">My Marketplace</h1>
-                    <button onClick={handleCoolProductClick}>=Add a cool product here!!!</button>
+                    <button onClick={handleCoolProductClick}>Add a cool product here!!!</button>
                 </div>
             </section>
             <div className="container mb-4">
@@ -81,39 +82,15 @@ function Cart() {
                                     {products.map((product, index) =>
                                         <tr key={"product-" + index}>
                                             <td> <img className="img-fluid" src={product.image} alt={product.name} /></td>
-                                            <td>{product.name}</td>
+                                            <td>{product.productName}</td>
+                                            <td>{product.isAvailable}</td>
+                                            <td><input className="form-control" aria-describedby="quantity-label" type="text" onChange={ (event) => handleChange(event, index)} value={product.quantity} /></td>
+                                            <td className="text-right">${product.price.toFixed(2)}</td>
+                                            <td className="text-right"><button className="btn btn-sm btn-danger"><i className="fa fa-trash"></i></button> </td>
                                         </tr>
+
                                     )}
-                                    {/* <tr>
-                                        <td><img src="https://dummyimage.com/50x50/55595c/fff" alt="sweater" /> </td>
-                                        <td>Premium Lover and Friends Hoodie</td>
-                                        <td>In stock</td>
-                                        <td><input className="form-control" aria-describedby="quantity-label" type="text"
-                                            value="1" /></td>
-                                        <td className="text-right">$75.00 USD</td>
-                                        <td className="text-right"><button className="btn btn-sm btn-danger"><i className="fa fa-trash"></i>
-                                        </button> </td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="https://dummyimage.com/50x50/55595c/fff" alt="pants" /> </td>
-                                        <td>Fancy Black Lounge Pants</td>
-                                        <td>In stock</td>
-                                        <td><input className="form-control" aria-describedby="quantity-label" type="text"
-                                            value="1" /></td>
-                                        <td className="text-right">$70.00 USD</td>
-                                        <td className="text-right"><button className="btn btn-sm btn-danger"><i className="fa fa-trash"></i>
-                                        </button> </td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="https://dummyimage.com/50x50/55595c/fff" alt=" cargo pants" /> </td>
-                                        <td> Premium Black Resort Cargo</td>
-                                        <td>In stock</td>
-                                        <td><input className="form-control" aria-describedby="quantity-label" type="text"
-                                            value="1" /></td>
-                                        <td className="text-right">$80.00 USD</td>
-                                        <td className="text-right"><button className="btn btn-sm btn-danger"><i className="fa fa-trash"></i>
-                                        </button> </td>
-                                    </tr> */}
+                                    
                                     <tr>
                                         <td></td>
                                         <td></td>
