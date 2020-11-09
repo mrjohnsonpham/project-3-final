@@ -40,6 +40,7 @@ function ProductItem(props) {
   useEffect(() => {
     loadProducts();
   }, []);
+//   console.log(products);
 
   // Loads all products and sets them to products
   function loadProducts() {
@@ -57,14 +58,19 @@ function ProductItem(props) {
     const name = thisElement.getAttribute("data-name");
     const availability = thisElement.getAttribute("data-available");
     const image = thisElement.getAttribute("data-image");
+    const shipping = parseFloat(thisElement.getAttribute("data-shipping"));
 
 // helpJA(name, available,quantity ,price1, image1, _id);
     console.log(price);
     console.log(_id);
     console.log(name);
     console.log(availability);
+    console.log(shipping);
+    console.log(availability);
 
-    addProductToCart(name, availability, 1, price, 10.00, image, "check it")
+    //addProductToCart = (productName, isAvailable, quantity, price, shippingCost, image, _id) 
+
+    addProductToCart(name, availability, 1, price, shipping, image, _id)
 
   
 
@@ -115,7 +121,8 @@ function ProductItem(props) {
                     data-image={product.image}
                     data-available={product.isAvailable}
                     data-id={product._id}
-                    data-price={product.price.toString()}
+                    data-shipping={product.shippingCost}
+                    data-price={product.price}
                   >
                     Add to Cart <i className="fa fa-cart-plus" />
                   </p>

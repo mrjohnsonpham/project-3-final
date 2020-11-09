@@ -40,9 +40,9 @@ function App() {
   const refreshCart = () => {
     // API.getCart... to refresh the cart state that is already global and updates the entire app and sync with database
     // can be called anywhere as needed, but in most cases, you call it in App... with global the entire app is updated
-    let shipping = 0;
-    let subtotal = 0;
-    let total = 0;
+    let shipping = 0.00;
+    let subtotal = 0.00;
+    let total = 0.00;
     products.forEach( product => {
       setShipping(shipping + product.shippingCost);
       setSubtotal(subtotal + product.price * product.quantity);

@@ -99,7 +99,7 @@ function Cart() {
                                         <td></td>
                                         <td></td>
                                         <td>Sub-Total</td>
-                                        <td className="text-right">${subtotal.toFixed(2)} USD</td>
+                                        <td className="text-right">${Number(subtotal).toFixed(2)} USD</td>
                                     </tr>
                                     <tr>
                                         <td></td>
@@ -107,7 +107,7 @@ function Cart() {
                                         <td></td>
                                         <td></td>
                                         <td>Shipping</td>
-                                        <td className="text-right">${shipping.toFixed(2)} USD</td>
+                                        <td className="text-right">${Number(shipping).toFixed(2)} USD</td>
                                     </tr>
                                     <tr>
                                         <td></td>
@@ -115,7 +115,7 @@ function Cart() {
                                         <td></td>
                                         <td></td>
                                         <td><strong>Total</strong></td>
-                                        <td className="text-right"><strong>${total.toFixed(2)} USD</strong></td>
+                                        <td className="text-right"><strong>${Number(total).toFixed(2)} USD</strong></td>
                                     </tr>
                                 </tbody>
                             </table>

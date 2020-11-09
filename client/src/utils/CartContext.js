@@ -5,7 +5,7 @@ const CartContext = createContext({
     setProducts: () => {}, 
     subtotal: 0.0,
     setSubtotal: () => {},
-    shipping: 0.0,
+    shipping: 0.00,
     setShipping: () => {},
     total: 0.0,
     setTotal: () => {},
