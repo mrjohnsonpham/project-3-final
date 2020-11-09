@@ -1,39 +1,40 @@
-import React, { Fragment, useContext, useEffect, useState } from "react";
+import React, { Fragment, useContext } from "react";
 import CartContext from '../utils/CartContext'
-import API from '../utils/API';
+// import API from '../utils/API';
 
 
 function Cart() {
-    const [allProducts, setAllProducts] = useState([]);
+    // const [allProducts, setAllProducts] = useState([]);
 
-    useEffect(() => {
-        loadProducts();
-    });
+    // useEffect(() => {
+    //     loadProducts();
+    // });
 
 
-    function loadProducts() {
-        API.getProducts()
-            .then(res =>
-
-                setAllProducts(res.data)
-            )
-            .catch(err => console.log(err));
-    };
+    // function loadProducts() {
+    //     API.getProducts()
+    //         .then(res =>
+            
+    //             setAllProducts(res.data)
+    //         )
+    //         .catch(err => console.log(err));
+    // };
     // console.log("All products: " + res.data)
 
 
+    // const { total, subtotal, shipping, products, setProducts, setShipping, setSubtotal, setTotal } = useContext(CartContext);
     const { total, subtotal, shipping, products, setProducts, setShipping, setSubtotal, setTotal,addProductToCart,refreshCart } = useContext(CartContext);
+    
+    // function cartBuilder() {
+    //     const products = allProducts.filter(allProduct => {
+    //         console.log("hello!");
 
-    function cartBuilder() {
-        const products = allProducts.filter(allProduct => {
-            console.log("hello!");
+    //     });
 
-        });
+    //     return (products)
 
-        return (products)
-
-    }
-    cartBuilder();
+    // }
+    // cartBuilder();
 
     // cartBuilder();
     // allProducts.filter(allProducts => {
@@ -44,6 +45,7 @@ function Cart() {
     const handleCoolProductClick = function (event) {
         console.log(event.target);
         addProductToCart("joes", "in-stock", 1, 5.00, 1.00, "https://joesbakery.com/wp-content/uploads/2016/01/JOES-50thedit332.jpg", "1")
+        
     }
 
     const handleChange = (event, index) =>{
@@ -53,7 +55,7 @@ function Cart() {
         const changedProduct = [...products];
         changedProduct[index].quantity = event.target.value;
         setProducts(changedProduct);
-        refreshCart();
+        // refreshCart();
     }
     return (
         <Fragment>
@@ -85,7 +87,7 @@ function Cart() {
                                             <td>{product.productName}</td>
                                             <td>{product.isAvailable}</td>
                                             <td><input className="form-control" aria-describedby="quantity-label" type="text" onChange={ (event) => handleChange(event, index)} value={product.quantity} /></td>
-                                            <td className="text-right">${product.price.toFixed(2)}</td>
+                                            <td className="text-right">${product.price}</td>
                                             <td className="text-right"><button className="btn btn-sm btn-danger"><i className="fa fa-trash"></i></button> </td>
                                         </tr>
 
