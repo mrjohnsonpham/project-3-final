@@ -1,20 +1,3 @@
-<<<<<<< HEAD
-import React from 'react';
-import LoginForm from '../components/LoginForm'
-
-function Login(props) {
-
-    return(
-        <div>
-            <h1>
-                Login
-            </h1>
-            <LoginForm/>
-        </div>
-    )
-}
-
-=======
 import React, { useContext } from 'react';
 import LoginForm from '../components/LoginForm';
 import {Redirect} from 'react-router-dom';
@@ -30,5 +13,4 @@ function Login(props){
         </div>
     )
 }
->>>>>>> 21f58eb1b861db4424f106cf8f69bd2b2b8e1935
 export default Login;

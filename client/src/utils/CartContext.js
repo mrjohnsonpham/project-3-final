@@ -8,7 +8,27 @@ const CartContext = createContext({
     shipping: 0.0,
     setShipping: () => {},
     total: 0.0,
-    setTotal: () => {}
+    setTotal: () => {},
+
+    name:"",
+    setName : () => {},
+    availability: true,
+    setAvailability: () => {},
+    quantity: 0,
+    setQuantity: () => {},
+    price:0.00,
+    setPrice: () => {},
+    image:"",
+    setImage: () => {},
+    productid:0,
+    setProductid: () => {}
+
+
+
+
+
+
+
 });
 
 export default CartContext;

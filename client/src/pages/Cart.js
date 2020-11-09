@@ -1,39 +1,39 @@
-import React, { Fragment, useContext, useEffect, useState } from "react";
+import React, { Fragment, useContext } from "react";
 import CartContext from '../utils/CartContext'
-import API from '../utils/API';
+// import API from '../utils/API';
 
 
 function Cart() {
-    const [allProducts, setAllProducts] = useState([]);
+    // const [allProducts, setAllProducts] = useState([]);
 
-    useEffect(() => {
-        loadProducts();
-    });
+    // useEffect(() => {
+    //     loadProducts();
+    // });
 
 
-    function loadProducts() {
-        API.getProducts()
-            .then(res =>
+    // function loadProducts() {
+    //     API.getProducts()
+    //         .then(res =>
             
-                setAllProducts(res.data)
-            )
-            .catch(err => console.log(err));
-    };
+    //             setAllProducts(res.data)
+    //         )
+    //         .catch(err => console.log(err));
+    // };
     // console.log("All products: " + res.data)
 
 
     const { total, subtotal, shipping, products, setProducts, setShipping, setSubtotal, setTotal } = useContext(CartContext);
     
-    function cartBuilder() {
-        const products = allProducts.filter(allProduct => {
-            console.log("hello!");
+    // function cartBuilder() {
+    //     const products = allProducts.filter(allProduct => {
+    //         console.log("hello!");
 
-        });
+    //     });
 
-        return (products)
+    //     return (products)
 
-    }
-    cartBuilder();
+    // }
+    // cartBuilder();
 
     // cartBuilder();
     // allProducts.filter(allProducts => {
