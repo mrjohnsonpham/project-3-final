@@ -8,7 +8,10 @@ const CartContext = createContext({
     shipping: 0.0,
     setShipping: () => {},
     total: 0.0,
-    setTotal: () => {}
+    setTotal: () => {},
+    addProductToCart: () => {},
+    refreshCart: () => {}
+
 });
 
 export default CartContext;
