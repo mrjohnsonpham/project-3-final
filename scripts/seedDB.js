@@ -59,7 +59,7 @@ const ProductsSeed = [
         description: "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park",
         image: "../img/2shirt2.jpg",
         date: new Date(Date.now()),
-        inCart: true,
+        inCart: false,
         isAvailable: true,
         inStock: 5,
         shippingCost: 6.99
@@ -96,7 +96,7 @@ const ProductsSeed = [
         category: "Jivko Specials",
         itemNumber: 7,
         description: "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth",
-        image: "../img/1pants1.jpg",
+        image: "../img/4shirt4.jpg",
         date: new Date(Date.now()),
         inCart: false,
         isAvailable: true,
