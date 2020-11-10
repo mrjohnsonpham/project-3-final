@@ -1,5 +1,4 @@
 import React,  {useState,useEffect} from 'react';
-// import { Router, Route, Switch } from 'react-router-dom';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -12,7 +11,6 @@ import CartContext from './utils/CartContext';
 import Login from "./pages/Login";
 import UserContext from "./utils/UserContext";
 import Logout from "./pages/Logout";
-
 import SignUp from "./pages/SignUp";
 import CheckoutModalBody from './components/ModalBody';
 import CheckoutModal from './components/CheckoutModal';
@@ -28,8 +26,6 @@ function App() {
   const [email, setEmail] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
   
-  
-
   const addProductToCart = (productName, isAvailable, quantity, price, shippingCost, image, _id) => {
     // do the math for the cart subtotal, total, shipping for the entire app and database
     let fullCart = [...products, {
@@ -52,28 +48,32 @@ function App() {
     setShipping(0);
     setSubtotal(0);
     setTotal(0);
-    productList.forEach( product => {
-
+    products.forEach( product => {
+      setShipping(shipping + product.shippingCost);
+      setSubtotal(subtotal + product.price * product.quantity);
+      setTotal(total + shipping + product.shippingCost + product.price * product.quantity);
+    })
+  }
   const refreshCart = () => {
     // API.getCart... to refresh the cart state that is already global and updates the entire app and sync with database
     // can be called anywhere as needed, but in most cases, you call it in App... with global the entire app is updated
     let shipping = 0.00;
     let subtotal = 0.00;
     let total = 0.00;
+    
     products.forEach( product => {
-
       setShipping(shipping + product.shippingCost);
       setSubtotal(subtotal + product.price * product.quantity);
       setTotal(total + shipping + product.shippingCost + product.price * product.quantity);
-    } )
-  }
-  const refreshCart = () => {
-    // API.getCart... to refresh the cart state that is already global and updates the entire app and sync with database
-    // can be called anywhere as needed, but in most cases, you call it in App... with global the entire app is updated
-    refreshCartHelper(products);
-    
+    })
   }
 
+  // const refreshCart = () => {
+  //   // API.getCart... to refresh the cart state that is already global and updates the entire app and sync with database
+  //   // can be called anywhere as needed, but in most cases, you call it in App... with global the entire app is updated
+  //   refreshCartHelper(products);
+    
+  // }
 
   const removeProductFromCart = (event,productid)=> {
     let changeProducts = products.filter( product => product._id !== productid);
@@ -87,6 +87,7 @@ function App() {
     // with global context it updates the entire app
     refreshCart();
   }, []);
+
   return (
     // kyle added 26 and 29-30
     <Router>
