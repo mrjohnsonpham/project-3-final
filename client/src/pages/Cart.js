@@ -17,7 +17,7 @@ function Cart(props) {
         <Fragment>
             <section className="jumbotron text-center">
                 <div className="container">
-                    <h1 className="jumbotron-heading">My Marketplace</h1>
+                    <h1 className="jumbotron-heading">Order Details</h1>
                 </div>
             </section>
             <div className="container mb-4">
