@@ -14,8 +14,12 @@ import UserContext from "./utils/UserContext";
 import Logout from "./pages/Logout";
 
 import SignUp from "./pages/SignUp";
+import CheckoutModalTest from './components/ModalTest';
+import CheckoutModal from './components/CheckoutModal';
+import { Button } from 'react-bootstrap';
 
 function App() {
+  const [modalShow, setModalShow] = React.useState(false);
   const [products, setProducts] = useState([]);
   const [subtotal, setSubtotal] = useState(0.0);
   const [shipping, setShipping] = useState(0.0);
@@ -82,6 +86,18 @@ function App() {
         <Route exact path="/logout">
               <Logout />
             </Route>
+        <Route exact path="/checkoutTest">
+            <CheckoutModalTest />
+        </Route>
+        <Route exact path="/checkout">
+        <Button variant="primary" onClick={() => setModalShow(true)}>
+        Launch vertically centered modal
+        </Button>
+        <CheckoutModal
+          show={modalShow}
+          onHide={() => setModalShow(false)}
+        />
+        </Route>    
       </Switch>
       {/* kyle added 47-48 and 51*/}
       </div>
