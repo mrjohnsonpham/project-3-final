@@ -12,7 +12,7 @@ mongoose.connect(
 
 const ProductsSeed = [
     {
-        productName: "Hoodie",
+        productName: "The Forever Hoodie",
         price: 65,
         category: "Johnson Specials",
         itemNumber: 1,
