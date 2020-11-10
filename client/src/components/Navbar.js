@@ -36,14 +36,7 @@ function Navbar(props)  {
                         </Link>
                     </li>
                 </ul>
-                <Link to='/cart' className="ml-auto" >
-                    <ButtonContainer>
-                        <span className="mr-2">
-                            <i className="fa fa-cart-plus" />
-                        </span>
-                        My Cart
-                    </ButtonContainer>
-                </Link>
+            
 
                 {/* kyle added 35-52*/}
                 { (() => {
@@ -69,14 +62,24 @@ function Navbar(props)  {
           } 
         }
       })()}
-      {(loggedIn) ? null : (<Link to='/signup' className="ml-auto" >
+      {(loggedIn) ? null : (<Link to='/signup' className="ml-left" >
             <ButtonContainer>
                 <span className="mr-2">
-                    <i className="fa fa-cart-plus" />
+                <i class="fa fa-user-alt"></i>
                 </span>
                 Sign Up
             </ButtonContainer>
         </Link>) }
+
+
+        <Link to='/cart' className="ml-auto" >
+                    <ButtonContainer>
+                        <span className="mr-2">
+                            <i className="fa fa-cart-plus" />
+                        </span>
+                        My Cart
+                    </ButtonContainer>
+                </Link>
       
 
 
