@@ -4,6 +4,10 @@ const mongoose = require("mongoose");
 const PORT = process.env.PORT || 3001;
 const routes = require("./routes");
 const app = express();
+require("dotenv").config();
+console.log(process.env.MONGODB_URI)
+
+
 
 // const testApi = require('./routes/test-api');
 // const products = require('./routes/api/products');

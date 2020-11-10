@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 const db = require("../models");
+require("dotenv").config();
+
 
 // This file empties the Products collection and inserts the products below
 
