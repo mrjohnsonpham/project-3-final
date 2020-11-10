@@ -14,8 +14,12 @@ import UserContext from "./utils/UserContext";
 import Logout from "./pages/Logout";
 
 import SignUp from "./pages/SignUp";
+import CheckoutModalBody from './components/ModalBody';
+import CheckoutModal from './components/CheckoutModal';
+import { Button } from 'react-bootstrap';
 
 function App() {
+  const [modalShow, setModalShow] = React.useState(false);
   const [products, setProducts] = useState([]);
   const [subtotal, setSubtotal] = useState(0.0);
   const [shipping, setShipping] = useState(0.0);
@@ -95,7 +99,19 @@ function App() {
         <Route exact path='/products' component={Products} />
         <Route exact path='/' component={ProductList} />
         <Route exact path='/cart'>
-          <Cart/>
+          <Cart
+            checkoutButton = {
+              <Button className="btn btn-lg btn-block btn-success text-uppercase" variant="primary" onClick={() => setModalShow(true)}>
+              Checkout
+              </Button>
+            }
+          />
+          <CheckoutModal
+            show={modalShow}
+            onHide={() => setModalShow(false)}
+            modalBody={<CheckoutModalBody />}
+          />
+
           {/* <Route exact path="/products/:productid">
               <Detail />
             </Route> */}
@@ -110,6 +126,9 @@ function App() {
         <Route exact path="/logout">
               <Logout />
             </Route>
+        <Route exact path="/checkoutTest">
+            <CheckoutModalBody />
+        </Route>  
       </Switch>
       {/* kyle added 47-48 and 51*/}
       </div>

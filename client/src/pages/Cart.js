@@ -4,9 +4,8 @@ import CartContext from '../utils/CartContext'
 
 
 
+function Cart(props) {
 
-function Cart() {
-    // const [allProducts, setAllProducts] = useState([]);
 
 
 
@@ -140,7 +139,8 @@ function Cart() {
                                 <button className="btn btn-block btn-light">Continue Shopping</button>
                             </div>
                             <div className="col-sm-12 col-md-6 text-right">
-                                <button className="btn btn-lg btn-block btn-success text-uppercase">Checkout</button>
+                                {/* <button className="btn btn-lg btn-block btn-success text-uppercase">Checkout</button> */}
+                                <div>{props.checkoutButton}</div>
                             </div>
                         </div>
                     </div>
