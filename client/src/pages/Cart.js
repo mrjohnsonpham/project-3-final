@@ -44,7 +44,6 @@ function Cart(props) {
                                             <td><input className="form-control" aria-describedby="quantity-label" type="text" onChange={(event) => handleChange(event, index)} value={product.quantity} /></td>
                                             <td className="text-right">${product.price.toFixed(2)}</td>
                                             <td className="text-right"><button onClick={(event) => removeProductFromCart(event, product._id)} className="btn btn-sm btn-danger"><i className="fa fa-trash"></i></button> </td>
-                                            <td className="text-right"><button className="btn btn-sm btn-danger"><i className="fa fa-trash"></i></button> </td>
                                         </tr>
                                     )}
 
