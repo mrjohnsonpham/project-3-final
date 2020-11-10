@@ -71,7 +71,19 @@ function App() {
         <Route exact path='/products' component={Products} />
         <Route exact path='/' component={ProductList} />
         <Route exact path='/cart'>
-          <Cart/>
+          <Cart
+            checkoutButton = {
+              <Button className="btn btn-lg btn-block btn-success text-uppercase" variant="primary" onClick={() => setModalShow(true)}>
+              Checkout
+              </Button>
+            }
+          />
+          <CheckoutModal
+            show={modalShow}
+            onHide={() => setModalShow(false)}
+            modalBody={<CheckoutModalTest></CheckoutModalTest>}
+          />
+
           {/* <Route exact path="/products/:productid">
               <Detail />
             </Route> */}
@@ -88,16 +100,7 @@ function App() {
             </Route>
         <Route exact path="/checkoutTest">
             <CheckoutModalTest />
-        </Route>
-        <Route exact path="/checkout">
-        <Button variant="primary" onClick={() => setModalShow(true)}>
-        Launch vertically centered modal
-        </Button>
-        <CheckoutModal
-          show={modalShow}
-          onHide={() => setModalShow(false)}
-        />
-        </Route>    
+        </Route>  
       </Switch>
       {/* kyle added 47-48 and 51*/}
       </div>
