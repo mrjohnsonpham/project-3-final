@@ -23,6 +23,8 @@ function App() {
   // kyle added 22-23
   const [email, setEmail] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
+  
+  
 
   const addProductToCart = (productName, isAvailable, quantity, price, shippingCost, image, _id) => {
     // do the math for the cart subtotal, total, shipping for the entire app and database
@@ -37,6 +39,17 @@ function App() {
     // API.callhere to add product
   }
 
+ 
+  const refreshCartHelper = (productList) =>{
+    console.log("refresh Cart");
+    let shipping = 0;
+    let subtotal = 0;
+    let total = 0;
+    setShipping(0);
+    setSubtotal(0);
+    setTotal(0);
+    productList.forEach( product => {
+
   const refreshCart = () => {
     // API.getCart... to refresh the cart state that is already global and updates the entire app and sync with database
     // can be called anywhere as needed, but in most cases, you call it in App... with global the entire app is updated
@@ -44,12 +57,27 @@ function App() {
     let subtotal = 0.00;
     let total = 0.00;
     products.forEach( product => {
+
       setShipping(shipping + product.shippingCost);
       setSubtotal(subtotal + product.price * product.quantity);
       setTotal(total + shipping + product.shippingCost + product.price * product.quantity);
     } )
+  }
+  const refreshCart = () => {
+    // API.getCart... to refresh the cart state that is already global and updates the entire app and sync with database
+    // can be called anywhere as needed, but in most cases, you call it in App... with global the entire app is updated
+    refreshCartHelper(products);
     
   }
+
+
+  const removeProductFromCart = (event,productid)=> {
+    let changeProducts = products.filter( product => product._id !== productid);
+    console.log(changeProducts);
+    setProducts(changeProducts);
+    refreshCartHelper(changeProducts);
+  }
+
   useEffect( () => {
     // uses the react life cycle to update the page's state or context,
     // with global context it updates the entire app
@@ -59,7 +87,7 @@ function App() {
     // kyle added 26 and 29-30
     <Router>
     <React.Fragment>
-      <CartContext.Provider value={{products,setProducts,subtotal,setSubtotal,shipping,setShipping,total,setTotal,refreshCart,addProductToCart }}>
+      <CartContext.Provider value={{products,setProducts,subtotal,setSubtotal,shipping,setShipping,total,setTotal,refreshCart,addProductToCart,removeProductFromCart}}>
       <UserContext.Provider value={{email, setEmail, loggedIn, setLoggedIn}}>
       <div>
       <Navbar/>

@@ -3,12 +3,15 @@ import CartContext from '../utils/CartContext'
 // import API from '../utils/API';
 
 
+
+
 function Cart() {
     // const [allProducts, setAllProducts] = useState([]);
 
-    // useEffect(() => {
-    //     loadProducts();
-    // });
+
+
+
+
 
 
     // function loadProducts() {
@@ -22,12 +25,19 @@ function Cart() {
     // console.log("All products: " + res.data)
 
 
+
+    const { total, subtotal, shipping, products, setProducts, setShipping, setSubtotal, setTotal,addProductToCart,removeProductFromCart,refreshCart } = useContext(CartContext);
+
+    
+
+
     // const { total, subtotal, shipping, products, setProducts, setShipping, setSubtotal, setTotal } = useContext(CartContext);
     const { total, subtotal, shipping, products, setProducts, setShipping, setSubtotal, setTotal,addProductToCart,refreshCart } = useContext(CartContext);
     
     // function cartBuilder() {
     //     const products = allProducts.filter(allProduct => {
     //         console.log("hello!");
+
 
     //     });
 
@@ -37,7 +47,7 @@ function Cart() {
     // cartBuilder();
 
     // cartBuilder();
-    // allProducts.filter(allProducts => {
+    // allProducts.filter(allProducts => 
     //     allProducts.inCart ? products : ("")
     // }) 
 
@@ -87,10 +97,13 @@ function Cart() {
                                             <td>{product.productName}</td>
                                             <td>{product.isAvailable}</td>
                                             <td><input className="form-control" aria-describedby="quantity-label" type="text" onChange={ (event) => handleChange(event, index)} value={product.quantity} /></td>
-                                            <td className="text-right">${product.price}</td>
-                                            <td className="text-right"><button className="btn btn-sm btn-danger"><i className="fa fa-trash"></i></button> </td>
-                                        </tr>
 
+                                            <td className="text-right">${product.price.toFixed(2)}</td>
+                                            <td className="text-right"><button onClick={(event)=>removeProductFromCart(event,product._id)} className="btn btn-sm btn-danger"><i className="fa fa-trash"></i></button> </td>
+
+                                          <td className="text-right"><button className="btn btn-sm btn-danger"><i className="fa fa-trash"></i></button> </td>
+
+                                        </tr>
                                     )}
                                     
                                     <tr>
