@@ -48,7 +48,7 @@ function App() {
     setShipping(0);
     setSubtotal(0);
     setTotal(0);
-    products.forEach( product => {
+    productList.forEach( product => {
       setShipping(shipping + product.shippingCost);
       setSubtotal(subtotal + product.price * product.quantity);
       setTotal(total + shipping + product.shippingCost + product.price * product.quantity);
@@ -92,7 +92,7 @@ function App() {
     // kyle added 26 and 29-30
     <Router>
     <React.Fragment>
-      <CartContext.Provider value={{products,setProducts,subtotal,setSubtotal,shipping,setShipping,total,setTotal,refreshCart,addProductToCart,removeProductFromCart}}>
+      <CartContext.Provider value={{products,setProducts,subtotal,setSubtotal,shipping,setShipping,total,setTotal,refreshCart,addProductToCart,removeProductFromCart, refreshCartHelper}}>
       <UserContext.Provider value={{email, setEmail, loggedIn, setLoggedIn}}>
       <div>
       <Navbar/>

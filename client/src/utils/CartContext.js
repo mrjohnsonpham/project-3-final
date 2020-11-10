@@ -30,8 +30,10 @@ const CartContext = createContext({
 
     addProductToCart: () => {},
     refreshCart: () => {},
-    removeProductFromCart: () => {}
-    
+    removeProductFromCart: () => {},
+
+
+    refreshCartHelper: () => {}
 
 });
 

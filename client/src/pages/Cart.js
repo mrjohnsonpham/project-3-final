@@ -3,7 +3,7 @@ import CartContext from '../utils/CartContext'
 
 function Cart(props) {
 
-    const { total, subtotal, shipping, products, setProducts, setShipping, setSubtotal, setTotal, addProductToCart, removeProductFromCart, refreshCart } = useContext(CartContext);
+    const { total, subtotal, shipping, products, setProducts, setShipping, setSubtotal, setTotal, addProductToCart, removeProductFromCart, refreshCartHelper } = useContext(CartContext);
     const handleChange = (event, index) => {
         // api call to ipdate quantity
         console.log(event.target);
@@ -11,7 +11,7 @@ function Cart(props) {
         const changedProduct = [...products];
         changedProduct[index].quantity = event.target.value;
         setProducts(changedProduct);
-        // refreshCart();
+        refreshCartHelper(changedProduct);
     }
     return (
         <Fragment>
