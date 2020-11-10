@@ -1,63 +1,10 @@
 import React, { Fragment, useContext } from "react";
 import CartContext from '../utils/CartContext'
-// import API from '../utils/API';
-
-
 
 function Cart(props) {
 
-
-
-
-
-
-
-
-    // function loadProducts() {
-    //     API.getProducts()
-    //         .then(res =>
-            
-    //             setAllProducts(res.data)
-    //         )
-    //         .catch(err => console.log(err));
-    // };
-    // console.log("All products: " + res.data)
-
-
-
-    const { total, subtotal, shipping, products, setProducts, setShipping, setSubtotal, setTotal,addProductToCart,removeProductFromCart,refreshCart } = useContext(CartContext);
-
-    
-
-
-    // const { total, subtotal, shipping, products, setProducts, setShipping, setSubtotal, setTotal } = useContext(CartContext);
-    const { total, subtotal, shipping, products, setProducts, setShipping, setSubtotal, setTotal,addProductToCart,refreshCart } = useContext(CartContext);
-    
-    // function cartBuilder() {
-    //     const products = allProducts.filter(allProduct => {
-    //         console.log("hello!");
-
-
-    //     });
-
-    //     return (products)
-
-    // }
-    // cartBuilder();
-
-    // cartBuilder();
-    // allProducts.filter(allProducts => 
-    //     allProducts.inCart ? products : ("")
-    // }) 
-
-
-    const handleCoolProductClick = function (event) {
-        console.log(event.target);
-        addProductToCart("joes", "in-stock", 1, 5.00, 1.00, "https://joesbakery.com/wp-content/uploads/2016/01/JOES-50thedit332.jpg", "1")
-        
-    }
-
-    const handleChange = (event, index) =>{
+    const { total, subtotal, shipping, products, setProducts, setShipping, setSubtotal, setTotal, addProductToCart, removeProductFromCart, refreshCart } = useContext(CartContext);
+    const handleChange = (event, index) => {
         // api call to ipdate quantity
         console.log(event.target);
         console.log(event.target.value);
@@ -71,7 +18,6 @@ function Cart(props) {
             <section className="jumbotron text-center">
                 <div className="container">
                     <h1 className="jumbotron-heading">My Marketplace</h1>
-                    <button onClick={handleCoolProductClick}>Add a cool product here!!!</button>
                 </div>
             </section>
             <div className="container mb-4">
@@ -95,16 +41,13 @@ function Cart(props) {
                                             <td> <img className="img-fluid" src={product.image} alt={product.name} /></td>
                                             <td>{product.productName}</td>
                                             <td>{product.isAvailable}</td>
-                                            <td><input className="form-control" aria-describedby="quantity-label" type="text" onChange={ (event) => handleChange(event, index)} value={product.quantity} /></td>
-
+                                            <td><input className="form-control" aria-describedby="quantity-label" type="text" onChange={(event) => handleChange(event, index)} value={product.quantity} /></td>
                                             <td className="text-right">${product.price.toFixed(2)}</td>
-                                            <td className="text-right"><button onClick={(event)=>removeProductFromCart(event,product._id)} className="btn btn-sm btn-danger"><i className="fa fa-trash"></i></button> </td>
-
-                                          <td className="text-right"><button className="btn btn-sm btn-danger"><i className="fa fa-trash"></i></button> </td>
-
+                                            <td className="text-right"><button onClick={(event) => removeProductFromCart(event, product._id)} className="btn btn-sm btn-danger"><i className="fa fa-trash"></i></button> </td>
+                                            <td className="text-right"><button className="btn btn-sm btn-danger"><i className="fa fa-trash"></i></button> </td>
                                         </tr>
                                     )}
-                                    
+
                                     <tr>
                                         <td></td>
                                         <td></td>
@@ -146,8 +89,6 @@ function Cart(props) {
                     </div>
                 </div>
             </div>
-
-
         </Fragment>
     )
 }
