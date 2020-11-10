@@ -7,8 +7,6 @@ import API from "../utils/API";
 function Detail(props) {
   const [product, setProduct] = useState({})
 
-  // When this component mounts, grab the book with the _id of props.match.params.id
-  // e.g. localhost:3000/books/599dcb67f0f16317844583fc
   const {productid} = useParams() // think useContext
   useEffect(() => {
     API.getProduct(productid)

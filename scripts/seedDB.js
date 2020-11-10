@@ -26,7 +26,7 @@ const ProductsSeed = [
         
     },
     {
-        productName: "Pants",
+        productName: "Don't Bother Me Lounge Pants",
         price: 9000,
         category: "Jivko Specials",
         itemNumber: 2,
@@ -79,7 +79,7 @@ const ProductsSeed = [
     },
     {
         productName: "Gentlemen Quarter Zip",
-        price: 17,
+        price: 70,
         category: "Jivko Specials",
         itemNumber: 6,
         description: "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually",
@@ -105,7 +105,7 @@ const ProductsSeed = [
     },
     {
         productName: "Cargo Resort Shorts",
-        price: 9000,
+        price: 3200,
         category: "Jivko Specials",
         itemNumber: 8,
         description: "olor amet offal butcher quinoa sustainable gastropub, ec",

@@ -8,7 +8,7 @@ function SignUp(props){
     return (
         <div className="container">
             {loggedIn && <Redirect to="/" />}
-            <h1>SignUp</h1>
+            <h1>Sign Up</h1>
             <SignUpForm className="full-page-signup" />
         </div>
     )
