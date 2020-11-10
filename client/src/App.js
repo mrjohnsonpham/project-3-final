@@ -14,7 +14,7 @@ import UserContext from "./utils/UserContext";
 import Logout from "./pages/Logout";
 
 import SignUp from "./pages/SignUp";
-import CheckoutModalTest from './components/ModalTest';
+import CheckoutModalBody from './components/ModalBody';
 import CheckoutModal from './components/CheckoutModal';
 import { Button } from 'react-bootstrap';
 
@@ -81,7 +81,7 @@ function App() {
           <CheckoutModal
             show={modalShow}
             onHide={() => setModalShow(false)}
-            modalBody={<CheckoutModalTest></CheckoutModalTest>}
+            modalBody={<CheckoutModalBody />}
           />
 
           {/* <Route exact path="/products/:productid">
@@ -99,7 +99,7 @@ function App() {
               <Logout />
             </Route>
         <Route exact path="/checkoutTest">
-            <CheckoutModalTest />
+            <CheckoutModalBody />
         </Route>  
       </Switch>
       {/* kyle added 47-48 and 51*/}

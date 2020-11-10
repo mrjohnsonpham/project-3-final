@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import "./style.css";
 
-function CheckoutModalTest() {
+function CheckoutModalBody() {
     return (
         <div id="checkoutDiv">
             <div className="checkoutRow">
@@ -85,4 +85,4 @@ function CheckoutModalTest() {
     )
 }
 
-export default CheckoutModalTest
+export default CheckoutModalBody
