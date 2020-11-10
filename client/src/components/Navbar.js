@@ -1,5 +1,5 @@
                             // kyle added useState, Fragment and useContext
-import React, { Component, useState, Fragment, useContext } from 'react';
+import React, {  useState, Fragment, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../../src/logo.svg';
 import styled from 'styled-components';
@@ -18,6 +18,17 @@ function Navbar(props)  {
                 <Link to='/'>
                     <img src={Logo} alt="logo" />
                 </Link>
+                {/* { !loginExpanded && <button onClick= {() => setLoginExpanded(true)}>Login</button>}
+                { loginExpanded && 
+                (() =>
+                <Fragment>
+                    <LoginForm>
+
+                    </LoginForm>
+                <button onClick= {() => setLoginExpanded(false)}>X</button>
+                </Fragment>
+                )()
+} */}
                 <ul className="navbar-nav align-items-center">
                     <li className="nav-item ml-5">
                         <Link to='/' className="nav-link" >
@@ -36,11 +47,11 @@ function Navbar(props)  {
                 {/* kyle added 35-52*/}
                 { (() => {
         if(loggedIn){
-          return <p className="logged-in-text">Logged in as {email} <Link className="btn btn-dark" to="/logout" onClick={ () => setLoginExpanded(false)}>Logout <span><i class="fa fa-sign-out" aria-hidden="true"></i></span> </Link> </p>;
+          return <p className="logged-in-text">Logged in as {email} <Link className="btn btn-dark" to="/logout" onClick={ () => setLoginExpanded(false)}>Logout <span><i className="fa fa-sign-out" aria-hidden="true"></i></span> </Link> </p>;
         }
         else{
           if(!loginExpanded){
-            return <button className="btn btn-secondary" onClick={ () => setLoginExpanded(true) }>Login <span><i class="fa fa-sign-in" aria-hidden="true"></i></span> </button>;
+            return <button className="btn btn-secondary" onClick={ () => setLoginExpanded(true) }>Login <span><i className="fa fa-sign-in" aria-hidden="true"></i></span> </button>;
           }
           else{
             return (
@@ -74,4 +85,4 @@ background: var(--mainBlue);
 }
 `
 
-export default Navbar
+export default Navbar;

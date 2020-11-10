@@ -1,25 +1,25 @@
-import React, { Fragment, useContext, useEffect, useState } from "react";
+import React, { Fragment, useContext } from "react";
 import CartContext from '../utils/CartContext'
-import API from '../utils/API';
+// import API from '../utils/API';
 
 
 
 function Cart() {
-    const [allProducts, setAllProducts] = useState([]);
+    // const [allProducts, setAllProducts] = useState([]);
 
-    useEffect(() => {
-        loadProducts();
-    });
+    // useEffect(() => {
+    //     loadProducts();
+    // });
 
 
-    function loadProducts() {
-        API.getProducts()
-            .then(res =>
-
-                setAllProducts(res.data)
-            )
-            .catch(err => console.log(err));
-    };
+    // function loadProducts() {
+    //     API.getProducts()
+    //         .then(res =>
+            
+    //             setAllProducts(res.data)
+    //         )
+    //         .catch(err => console.log(err));
+    // };
     // console.log("All products: " + res.data)
 
 
@@ -45,6 +45,7 @@ function Cart() {
     const handleCoolProductClick = function (event) {
         console.log(event.target);
         addProductToCart("joes", "in-stock", 1, 5.00, 1.00, "https://joesbakery.com/wp-content/uploads/2016/01/JOES-50thedit332.jpg", "1")
+        
     }
 
     const handleChange = (event, index) =>{
@@ -54,7 +55,7 @@ function Cart() {
         const changedProduct = [...products];
         changedProduct[index].quantity = event.target.value;
         setProducts(changedProduct);
-        refreshCart();
+        // refreshCart();
     }
     return (
         <Fragment>
@@ -97,7 +98,7 @@ function Cart() {
                                         <td></td>
                                         <td></td>
                                         <td>Sub-Total</td>
-                                        <td className="text-right">${subtotal.toFixed(2)} USD</td>
+                                        <td className="text-right">${Number(subtotal).toFixed(2)} USD</td>
                                     </tr>
                                     <tr>
                                         <td></td>
@@ -105,7 +106,7 @@ function Cart() {
                                         <td></td>
                                         <td></td>
                                         <td>Shipping</td>
-                                        <td className="text-right">${shipping.toFixed(2)} USD</td>
+                                        <td className="text-right">${Number(shipping).toFixed(2)} USD</td>
                                     </tr>
                                     <tr>
                                         <td></td>
@@ -113,7 +114,7 @@ function Cart() {
                                         <td></td>
                                         <td></td>
                                         <td><strong>Total</strong></td>
-                                        <td className="text-right"><strong>${total.toFixed(2)} USD</strong></td>
+                                        <td className="text-right"><strong>${Number(total).toFixed(2)} USD</strong></td>
                                     </tr>
                                 </tbody>
                             </table>
