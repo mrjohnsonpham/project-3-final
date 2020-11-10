@@ -53,7 +53,9 @@ function ProductItem(props) {
     // if the user hits the button to add to cart, this function will fire
     event.preventDefault();
     const thisElement = event.target;
-    const price = thisElement.getAttribute("data-price");
+
+    const price = parseFloat(thisElement.getAttribute("data-price"));
+
     const _id = thisElement.getAttribute("data-id");
     const name = thisElement.getAttribute("data-name");
     const availability = thisElement.getAttribute("data-available");
