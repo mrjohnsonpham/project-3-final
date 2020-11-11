@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 
 function Cart(props) {
 
-    const { total, subtotal, shipping, products, setProducts, setShipping, setSubtotal, setTotal, addProductToCart, removeProductFromCart, refreshCartHelper } = useContext(CartContext);
+    const { total, subtotal, shipping, products, setProducts, removeProductFromCart, refreshCartHelper } = useContext(CartContext); // setShipping, setSubtotal, setTotal, addProductToCart,
     const handleChange = (event, index) => {
         // api call to ipdate quantity
         console.log(event.target);
@@ -39,7 +39,7 @@ function Cart(props) {
                                 <tbody>
                                     {products.map((product, index) =>
                                         <tr key={"product-" + index}>
-                                            <td> <img className="img-fluid" src={product.image} alt={product.name} /></td>
+                                            <td> <img className="img-fluid" styles={{width:"240px"}} src={product.image} alt={product.name} /></td>
                                             <td>{product.productName}</td>
                                             <td>{product.isAvailable}</td>
                                             <td><input className="form-control" aria-describedby="quantity-label" type="text" onChange={(event) => handleChange(event, index)} value={product.quantity} /></td>

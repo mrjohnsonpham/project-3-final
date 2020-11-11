@@ -113,9 +113,36 @@ $.get("/api/user_data").then(cloudData => {
 });
 
 //===========
+// jivko added for upload
+const [selectedFile ,   setSelectedFile] = useState(null);
+// const fileInput = useRef();
+  
+const fileSelectedHandler = event =>{
+    setSelectedFile(event.target.files[0]);
+    // console.log(selectedFile.name);
+  }
 
+const fileUploadHandler = event =>{
+  // event.preventDefault()
+  console.log(selectedFile.name);
+  const fd= new FormData();
+  fd.append('image', selectedFile, selectedFile.name);
+  axios.post('https://us-central1-project3final-62945.cloudfunctions.net/uploadFile', fd,{ 
+    onUploadProgress: progressEvent =>{
+console.log('Upload Progress:'+ Math.round(progressEvent.loaded / progressEvent.total * 100) + '%')
+  }
+})
+  .then(res => {
 
+      console.log(res);
+  })
+}
 
+   {/* jivko added for the upload */}
+   <input  type="file" onChange={fileSelectedHandler}
+   />
+     {/* <button  onClick={ fileInput}>Pick a file</button> */}
+     <button  onClick={fileUploadHandler}>Upload</button>
 
 export default InputItemSelf;
 

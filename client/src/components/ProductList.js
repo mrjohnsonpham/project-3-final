@@ -1,10 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 import ProductItem from './ProductItem'
 import Title from './Title'
 
 
-class ProductList extends Component {
-    render() {
+function ProductList (props) {
+ 
+  
         return (
             <div className="py-5">
                 <div className="container">
@@ -16,13 +17,13 @@ class ProductList extends Component {
                                     return <ProductItem key={product.id} product={product} />
                                 })
                             }} */}
-                            <ProductItem/>
+                            <ProductItem   />
                         {/* </ProductConsumer> */}
                     {/* </div> */}
                 </div>
             </div>
         )
-    }
+    
 }
 
 export default ProductList
