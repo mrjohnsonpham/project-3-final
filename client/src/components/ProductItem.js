@@ -86,7 +86,7 @@ function ProductItem(props) {
     <div className="row">
       {products.map((product) => (
         <div className="col-sm-9 mx-auto col-md-6 col-lg-3 my-3">
-          {console.log(product)}
+          {/* {console.log(product)} */}
           <div className="card">
             {/* <ProductConsumer> */}
             {/* <Products> */}

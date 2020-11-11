@@ -1,4 +1,4 @@
-import React,  {useState,useEffect} from 'react';
+import React,  {useState,useEffect, useRef} from 'react';
 // import { Router, Route, Switch } from 'react-router-dom';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
@@ -14,8 +14,37 @@ import UserContext from "./utils/UserContext";
 import Logout from "./pages/Logout";
 
 import SignUp from "./pages/SignUp";
+import axios from 'axios';
+
 
 function App() {
+// jivko added for upload
+const [selectedFile ,   setSelectedFile] = useState(null);
+const fileInput = useRef();
+  
+const fileSelectedHandler = event =>{
+    setSelectedFile(event.target.files[0]);
+    // console.log(selectedFile.name);
+  }
+
+const fileUploadHandler = event =>{
+  // event.preventDefault()
+  console.log(selectedFile.name);
+  const fd= new FormData();
+  fd.append('image', selectedFile, selectedFile.name);
+  axios.post('https://us-central1-project3final-62945.cloudfunctions.net/uploadFile', fd,{ 
+    onUploadProgress: progressEvent =>{
+console.log('Upload Progress:'+ Math.round(progressEvent.loaded / progressEvent.total * 100) + '%')
+  }
+})
+  .then(res => {
+
+      console.log(res);
+  })
+}
+
+
+
   const [products, setProducts] = useState([]);
   const [subtotal, setSubtotal] = useState(0.0);
   const [shipping, setShipping] = useState(0.0);
@@ -56,6 +85,8 @@ function App() {
     refreshCart();
   }, []);
   return (
+    
+
     // kyle added 26 and 29-30
     <Router>
     <React.Fragment>
@@ -87,6 +118,12 @@ function App() {
       </div>
       </UserContext.Provider>
       </CartContext.Provider>
+
+      {/* jivko added for the upload */}
+       <input  type="file" onChange={fileSelectedHandler}
+    />
+      {/* <button  onClick={ fileInput}>Pick a file</button> */}
+      <button  onClick={fileUploadHandler}>Upload</button>
     </React.Fragment>
     </Router>
   );

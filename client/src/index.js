@@ -19,6 +19,7 @@ ReactDOM.render(
                </Login>
            </Route>
         </Router>
+       
     </ProductProvider>,
     document.getElementById('root'));
 
