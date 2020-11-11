@@ -1,6 +1,7 @@
 import React, { Fragment, useContext } from "react";
 import CartContext from '../utils/CartContext'
 import {Link} from 'react-router-dom';
+import './style.css';
 
 function Cart(props) {
 
