@@ -57,6 +57,8 @@ const handleItemDetails =(event) =>{
   const image = thisElement.getAttribute("data-image");
   const shipping = parseFloat(thisElement.getAttribute("data-shipping"));
   const description = thisElement.getAttribute("data-description");
+  const inCart = thisElement.getAttribute("data-incart");
+  const itemNumber = thisElement.getAttribute("data-itemnumber");
   console.log(price);
   console.log(_id);
   console.log(name);
@@ -64,7 +66,7 @@ const handleItemDetails =(event) =>{
   console.log(shipping);
   console.log(availability);
   console.log(description);
-  addProductDetails(name, availability, 1, price, shipping, image, _id,description);
+  addProductDetails(name, availability, 1, price, shipping, image, _id,description,inCart, itemNumber);
   handleOnClick();
 }
 
@@ -135,6 +137,8 @@ const handleItemDetails =(event) =>{
                   data-shipping={product.shippingCost}
                   data-price={product.price}
                   data-description={product.description} 
+                  data-incart={product.inCart} 
+                  data-itemNumber={product.itemNumber} 
              
                   />
             

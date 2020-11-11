@@ -57,7 +57,7 @@ function App() {
     // API.callhere to add product
   }
 
-  const addProductDetails = (productName, isAvailable, quantity, price, shippingCost, image, _id, description) => {
+  const addProductDetails = (productName, isAvailable, quantity, price, shippingCost, image, _id, description, inCart, itemNumber) => {
     // do the math for the cart subtotal, total, shipping for the entire app and database
     let pDetail = {
       productName:productName, 
@@ -67,7 +67,9 @@ function App() {
       shippingCost:shippingCost, 
       image:image, 
       _id:_id,
-      description:description
+      description:description,
+      inCart:inCart,
+      itemNumber:itemNumber
     };
     console.log(pDetail);
     setProductDetail(pDetail);
