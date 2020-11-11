@@ -36,14 +36,8 @@ function Navbar(props)  {
                         </Link>
                     </li>
                 </ul>
-                <Link to='/cart' className="ml-auto" >
-                    <ButtonContainer>
-                        <span className="mr-2">
-                            <i className="fa fa-cart-plus" />
-                        </span>
-                        My Cart
-                    </ButtonContainer>
-                </Link>
+            
+
                 {/* kyle added 35-52*/}
                 { (() => {
         if(loggedIn){
@@ -51,7 +45,12 @@ function Navbar(props)  {
         }
         else{
           if(!loginExpanded){
-            return <button className="btn btn-secondary" onClick={ () => setLoginExpanded(true) }>Login <span><i className="fa fa-sign-in" aria-hidden="true"></i></span> </button>;
+            return(
+              <>
+            <button className="btn btn-secondary" onClick={ () => setLoginExpanded(true) }>Login <span><i className="fa fa-sign-in" aria-hidden="true"></i></span> </button>
+           
+        </>
+            );
           }
           else{
             return (
@@ -63,6 +62,28 @@ function Navbar(props)  {
           } 
         }
       })()}
+      {(loggedIn) ? null : (<Link to='/signup' className="ml-left" >
+            <ButtonContainer>
+                <span className="mr-2">
+                   <i class="fas fa-user-alt"></i>
+                </span>
+                Sign Up
+            </ButtonContainer>
+        </Link>) }
+
+
+        <Link to='/cart' className="ml-auto" >
+                    <ButtonContainer>
+                        <span className="mr-2">
+                            <i className="fa fa-cart-plus" />
+                        </span>
+                        My Cart
+                    </ButtonContainer>
+                </Link>
+      
+
+
+
             </NavWrapper>
         )
     

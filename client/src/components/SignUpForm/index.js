@@ -1,13 +1,28 @@
-import React, { Fragment, useContext, useRef } from 'react';
+import React, { Fragment, useContext, useRef, useState } from 'react';
 // import "./style.scss";
 import API from '../../utils/API';
 import UserContext from '../../utils/UserContext';
+import passwordValidator from "password-validator";
 
 function SignUpForm(props) {
     const { email, setEmail, loggedIn, setLoggedIn } = useContext(UserContext);
     const emailInput = useRef();
     const passwordInput = useRef();
     const nameInput = useRef();
+    const [passwordGood, setpasswordGood] = useState(true)
+
+    var passwordVal = new passwordValidator();
+
+    passwordVal
+        .is().min(8)                                    // Minimum length 8
+        .is().max(100)                                  // Maximum length 100
+        .has().uppercase()                              // Must have uppercase letters
+        .has().lowercase()                              // Must have lowercase letters
+        .has().digits(2)                                // Must have at least 2 digits
+        .has().not().spaces()                           // Should not have spaces
+        .is().not().oneOf(['Passw0rd', 'Password123']) // Blacklist these values
+        .has().symbols(1);                              // Must have 1 symbol
+
 
     let extraProps = {}
     if (props.className) {
@@ -30,15 +45,23 @@ function SignUpForm(props) {
         // .catch(err => {
         //     console.log(err);
         // });
-        API.signup({ email: emailInput.current.value, password: passwordInput.current.value, name: nameInput.current.value})
+        if(passwordVal.validate(passwordInput.current.value)){
+            console.log('password is good')
+            API.signup({ email: emailInput.current.value, password: passwordInput.current.value, name: nameInput.current.value })
             .then(data => {
-                 console.log(data);
+                console.log(data);
                 setEmail(data.data.email);
                 setLoggedIn(true);
             })
             .catch(err => {
                 console.log(err);
             });
+        }else {
+            console.log('password failed')
+            setpasswordGood(false);
+        }
+
+
     }
     return (
         <Fragment>
@@ -57,6 +80,7 @@ function SignUpForm(props) {
                         <div className="form-group">
                             <label htmlFor={passwordId}>Password</label>
                             <input ref={passwordInput} type="password" className="form-control" id={passwordId} />
+                            {(!passwordGood) ? <h2>Password failed, try again</h2> : null }
                         </div>
                         <button type="submit" className="btn btn-primary">Sign Up</button>
                     </form>
