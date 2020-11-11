@@ -1,7 +1,7 @@
                             // kyle added useState, Fragment and useContext
 import React, {  useState, Fragment, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import Logo from '../../src/logo.svg';
+import Logo from '../logo.jpg';
 import styled from 'styled-components';
 import { ButtonContainer } from './Button';
 import UserContext from "../utils/UserContext";
@@ -16,7 +16,7 @@ function Navbar(props)  {
             <NavWrapper className="navbar navbar-expand-sm navbar-dark px-sm-5">
              
                 <Link to='/'>
-                    <img src={Logo} alt="logo" />
+                    <img className="logo" src={Logo} alt="logo" />
                 </Link>
                 {/* { !loginExpanded && <button onClick= {() => setLoginExpanded(true)}>Login</button>}
                 { loginExpanded && 
