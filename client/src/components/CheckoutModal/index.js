@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';  // { Fragment } 
 import "./style.css";
 import { Button, Modal } from 'react-bootstrap';
 

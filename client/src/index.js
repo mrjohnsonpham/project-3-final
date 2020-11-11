@@ -15,10 +15,10 @@ ReactDOM.render(
             <App />
            < Route exact path="/login">
                <Login>
-
                </Login>
            </Route>
         </Router>
+       
     </ProductProvider>,
     document.getElementById('root'));
 

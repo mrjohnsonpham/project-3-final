@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';   //{ Fragment }
 import "./style.css";
 
 function CheckoutModalBody() {
@@ -63,7 +63,7 @@ function CheckoutModalBody() {
                         <label className="checkoutLabel">
                             <input className="checkoutInput" type="checkbox" checked="checked" name="sameadr"></input> Shipping address same as billing
                         </label>
-                        <input className="checkoutInput" type="submit" value="Continue to checkout" className="checkoutBtn"></input>
+                        <input className="checkoutInput  checkoutBtn" type="submit" value="Continue to checkout" ></input>
                     </form>
                 </div>
             </div>

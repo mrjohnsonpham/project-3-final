@@ -65,7 +65,7 @@ function Navbar(props)  {
       {(loggedIn) ? null : (<Link to='/signup' className="ml-left" >
             <ButtonContainer>
                 <span className="mr-2">
-                   <i class="fas fa-user-alt"></i>
+                   <i className="fas fa-user-alt"></i>
                 </span>
                 Sign Up
             </ButtonContainer>

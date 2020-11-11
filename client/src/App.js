@@ -1,4 +1,5 @@
-import React,  {useState,useEffect} from 'react';
+import React,  {useState,useEffect}  from 'react'; //useContext, useRef
+// import { Router, Route, Switch } from 'react-router-dom';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -12,16 +13,33 @@ import Login from "./pages/Login";
 import UserContext from "./utils/UserContext";
 import Logout from "./pages/Logout";
 import SignUp from "./pages/SignUp";
+// import axios from 'axios';
 import CheckoutModalBody from './components/ModalBody';
 import CheckoutModal from './components/CheckoutModal';
+import Details from './components/Details';
 import { Button } from 'react-bootstrap';
+// import {itemDetail1} from './components/ProductItem'
+
 
 function App() {
+  // console.log(itemDetail1);
   const [modalShow, setModalShow] = React.useState(false);
   const [products, setProducts] = useState([]);
   const [subtotal, setSubtotal] = useState(0.0);
   const [shipping, setShipping] = useState(0.0);
   const [total, setTotal] = useState(0.0);
+  const [productDetail, setProductDetail] = useState({
+
+    productName:"test", 
+    isAvailable:"test2", 
+    quantity:"0",
+    price:"0.00", 
+    shippingCost:"0.00", 
+    image:"test4", 
+    _id:"_id",
+    description:"description"
+
+  });
   // kyle added 22-23
   const [email, setEmail] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
@@ -35,6 +53,27 @@ function App() {
     setShipping(shipping + shippingCost);
     setSubtotal(subtotal + price * quantity);
     setTotal(total + shipping + shippingCost + price * quantity);
+    // add to database cart
+    // API.callhere to add product
+  }
+
+  const addProductDetails = (productName, isAvailable, quantity, price, shippingCost, image, _id, description, inCart, itemNumber) => {
+    // do the math for the cart subtotal, total, shipping for the entire app and database
+    let pDetail = {
+      productName:productName, 
+      isAvailable:isAvailable, 
+      quantity:quantity,
+      price:price, 
+      shippingCost:shippingCost, 
+      image:image, 
+      _id:_id,
+      description:description,
+      inCart:inCart,
+      itemNumber:itemNumber
+    };
+    console.log(pDetail);
+    setProductDetail(pDetail);
+    
     // add to database cart
     // API.callhere to add product
   }
@@ -85,20 +124,25 @@ function App() {
   useEffect( () => {
     // uses the react life cycle to update the page's state or context,
     // with global context it updates the entire app
-    refreshCart();
+    // refreshCart();
   }, []);
 
+
   return (
+    
+
     // kyle added 26 and 29-30
     <Router>
     <React.Fragment>
-      <CartContext.Provider value={{products,setProducts,subtotal,setSubtotal,shipping,setShipping,total,setTotal,refreshCart,addProductToCart,removeProductFromCart, refreshCartHelper}}>
+      <CartContext.Provider value={{products,setProducts,subtotal,setSubtotal,shipping,setShipping,total,setTotal,refreshCart,addProductDetails, addProductToCart, productDetail, setProductDetail, removeProductFromCart, refreshCartHelper}}>
       <UserContext.Provider value={{email, setEmail, loggedIn, setLoggedIn}}>
       <div>
       <Navbar/>
       <Switch>
         <Route exact path='/products' component={Products} />
-        <Route exact path='/' component={ProductList} />
+        <Route exact path='/' >
+        <ProductList  />
+       </Route>
         <Route exact path='/cart'>
           <Cart
             checkoutButton = {
@@ -113,10 +157,10 @@ function App() {
             modalBody={<CheckoutModalBody />}
           />
 
-          {/* <Route exact path="/products/:productid">
-              <Detail />
-            </Route> */}
         </Route>
+          <Route exact path='/details' component={Details} >
+              <Details pDetail={productDetail}/>
+            </Route>
         {/* kyle added 39-47*/}
         <Route exact path="/login">
               <Login />
@@ -135,6 +179,8 @@ function App() {
       </div>
       </UserContext.Provider>
       </CartContext.Provider>
+
+   
     </React.Fragment>
     </Router>
   );
