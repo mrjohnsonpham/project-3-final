@@ -149,7 +149,7 @@ const handleItemDetails =(event) =>{
                 disabled={product.inCart ? true : false}
                 onClick={handleAddToCart}
               >
-                {product.inCart ? (
+                {product.inCart == true ? (
                   <p
                     className="text-capitalize mb-0"
                     disabled
