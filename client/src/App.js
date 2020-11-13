@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'; //useContext, useRef
 // import { Router, Route, Switch } from 'react-router-dom';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, useLocation } from "react-router-dom";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/Navbar';
@@ -20,6 +20,7 @@ import CheckoutModal from './components/CheckoutModal';
 import Details from './components/Details';
 import { Button } from 'react-bootstrap';
 // import {itemDetail1} from './components/ProductItem'
+// import ScrollIntoView from 'react-scroll-into-view';
 
 
 function App() {
@@ -140,10 +141,9 @@ function App() {
             <div>
               <Navbar />
               <Switch>
-                {/* <Route exact path='/products' component={CustomCarousel} /> */}
-                <Route exact path='/products' component={Products, CustomCarousel} />
-                <Route exact path='/' >
-                  <CustomCarousel />
+                  <Route exact path='/products' component={Products} />
+                <Route exact path='/'>
+                  {/* <CustomCarousel /> */}
                   <ProductList />
                 </Route>
                 <Route exact path='/cart'>
