@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'; //useContext, useRef
-// import { Router, Route, Switch } from 'react-router-dom';
-import { BrowserRouter as Router, Route, Switch, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch} from "react-router-dom";  //, useLocation 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/Navbar';
@@ -8,7 +7,7 @@ import ProductList from './components/ProductList';
 import Products from './pages/Products';
 import Cart from './pages/Cart';
 import CartContext from './utils/CartContext';
-import CustomCarousel from './components/CustomCarousel/CustomCarousel'
+// import CustomCarousel from './components/CustomCarousel/CustomCarousel'
 // kyle added 12-14
 import Login from "./pages/Login";
 import UserContext from "./utils/UserContext";

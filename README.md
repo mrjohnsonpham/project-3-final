@@ -1,29 +1,72 @@
-# Create React Express App
 
-## About This Boilerplate
+    
+# Title : project-3-final
 
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
+## Description
+Author: Johnson Pham, Andrew D'Alba, KyleAllen, Joeseph Luca, Jivko Atanassov
 
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
+Times are hard, jobs are scarce, looks like the world is ending...Fear no more "Flip-it!" is here! This revolutionary app is coming to save the world. Starting with the designer line from the web and fashion Master Johnson , and evolving into a freedom tool for the masses to sell their most coveted, mint condition , most sought after brand names. Back off "amazon" , "Flip-it" is taking the stage!
 
-## Starting the app locally
+Github User names: mrjohnsonpham,joeluca24, andrewdalba,Kallen478, zhim57
 
-Start by installing front and backend dependencies. While in this directory, run the following command:
+## Table of Contents:
+- [Title](#title)
+- [Description](#description)
+- [Table of Contents](#table-of-contents)
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#licence)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions](#questions)
 
-```
-npm install
-```
+## Installation
+npm install,npm start , or just presses the deployed app link for heroku:https://sleepy-caverns-51893.herokuapp.com/ 
+## Usage
+- Web development/front end
+- Node.js  application
+- Web development back end
+- Database Application
+- Productivity Application
+- iOS App
+- Android app
+- entertainment application
+- Financial App
+- transportation application
+- other
+this is a great marketplace website , a lot of first class products.And future possibility to add your own products to the line.
+## Email
+zhim57@yahoo.com
+## Contributing
+Johnson Pham, Andrew D'Alba, KyleAllen, Joeseph Luca, Jivko Atanassov
+## License
+![GitHub](https://img.shields.io/github/license/mrjohnsonpham/project-3-final)
 
-This should install node modules within the server and the client folder.
+## Tests
+functionality
 
-After both installations complete, run the following command in your terminal:
+## Questions
+please email with any questions at:
+Johnson Pham, 
+Andrew D'Alba : andrewdalba@gmail.com, 
+KyleAllen, 
+Joeseph Luca, 
+Jivko Atanassov  :  zhim57@yahoo.com, 
 
-```
-npm start
-```
+Thank You.
 
-Your app should now be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
+## Links
 
-## Deployment (Heroku)
+[link to this portfolio](https://github.com/mrjohnsonpham/project-3-final)
 
-To deploy, simply add and commit your changes, and push      ato Heroku. As is, the NPM scripts should take care of the rest.
+[link to the deployed application](https://sleepy-caverns-51893.herokuapp.com/)
+  
+
+## Screenshots
+
+![screenshot no.1 of the working application](image1.JPG)
+
+![screenshot no.2 of the working application](image2.JPG)
+
+
+  

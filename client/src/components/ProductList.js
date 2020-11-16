@@ -1,7 +1,7 @@
 import React from 'react'
 import ProductItem from './ProductItem'
 import Title from './Title'
-import CustomCarousel from './CustomCarousel/CustomCarousel'
+// import CustomCarousel from './CustomCarousel/CustomCarousel'
 
 
 function ProductList(props) {

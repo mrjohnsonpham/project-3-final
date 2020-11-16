@@ -1,10 +1,10 @@
 import React, {useContext} from "react";
 import './style.css'
-import testImage from '../testImage.png';
+// import testImage from '../testImage.png';
 import CartContext from "../utils/CartContext";
 
 function Details(props) {
-    let picture = testImage;
+    // let picture = testImage;
     const {
         addProductToCart,
         // refreshCart,
