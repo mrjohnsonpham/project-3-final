@@ -36,7 +36,7 @@ npm install,npm start , or just presses the deployed app link for heroku:https:/
 - other
 this is a great marketplace website , a lot of first class products.And future possibility to add your own products to the line.
 ## Email
-zhim57@yahoo.com
+andrewdalba@gmail.com , zhim57@yahoo.com
 ## Contributing
 Johnson Pham, Andrew D'Alba, KyleAllen, Joeseph Luca, Jivko Atanassov
 ## License
